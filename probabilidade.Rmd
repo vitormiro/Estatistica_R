@@ -1,0 +1,112 @@
+---
+title: "Estatística Aplicada"
+author: "Prof. Vitor Hugo Miro (DEA e PPGER/CCA/UFC)"
+output: html_notebook
+---
+
+# 1. Probabilidade
+
+## 1.1. Eventos e espaço amostral
+
+O **espaço amostral** $\Omega$  é um conjunto de resultados possíveis de um experimento.  Os elementos de $\Omega$ são denominados **resultados ou pontos amostrais**, dados por $\omega$ in $\Omega$. 
+
+**Eventos** são conjuntos de $\Omega$.
+
+### Complementar
+Dado um evento $A$, $A^c = \{ \omega \in \Omega : \text{not } (\omega \in A) \}$ denota o complementar de $A$.  Por sua vez, o complementar de $\Omega$ é o conjunto vazio $\varnothing$.
+
+### União
+A união dos eventos $A$ e $B$ é definida por $A \cup B = \{ \omega \in \Omega : \omega \in A \text{ ou } \omega \in B \}$.
+
+Se $A_1, A_2, \dots$ é uma sequência de conjuntos, então:
+
+$$ \cup_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para algum } i \right\}$$
+
+### Interseção
+A interseção de $A$ and $B$ is $A \cap B = \{ \omega \in \Omega : \omega \in A \text{ e } \omega \in B \}$.
+
+Se $A_1, A_2, \dots$ é uma sequência de conjuntos, então:
+
+$$ \cap_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para todo } i \right\}$$
+
+### Diferença
+Seja $A - B = \left\{ \omega \in \Omega : \omega \in A \text{ e não } (\omega \in B) \right\}$.
+
+Se todo elemento de $A$ está contido em $B$ escrevemos $A \subset B$ ou $B \supset A$.
+
+Se $A$ é um conjunto finito, $|A|$ denota o número de elementos em $A$.
+
+
+Um pouco de notação.
+
+| Notação            | Significado                                        |
+|--------------------|----------------------------------------------------|
+| $\Omega$           | espaço amostral                                    |
+| $\omega$           | resultado                                          | 
+| $A$                | evento (subconjunto de $\Omega$)                   |
+| $\vert A \vert$    | número de elementos em $A$ (se finito)             |
+| $A^c$              | complementar de $A$ (não $A$)                      |
+| $A \cup B$         | união ($A$ ou $B$)                                 |
+| $A \cap B$ ou $AB$ | interseção ($A$ e $B$)                             |
+| $A - B$            | diferença (pontos em $A$ mas não em $B$)           |
+| $A \subset B$      | inclusão ($A$ é um subconjunto de $B$)             |
+| $\varnothing$      | conjunto vazio                                     |
+
+
+
+Os eventos $A_1, A_2, \dots$ são **disjuntos** or **mutuamente exclusivos** se $A_i \cap A_j = \varnothing$ whenever $i \neq j$.  
+
+Uma **partição** de $\Omega$ é uma sequência de conjuntos disjuntos $A_1, A_2, \dots$ tal que $\cup_{i=1}^\infty A_i = \Omega$. Dizemos que a união de eventos $A_1, A_2, \dots$ é exaustiva em $\Omega$.
+
+Dado o evento $A$, definimos a **função indicadora de $A$** por:
+
+$$ I_A(\omega) = I(\omega \in A) = \begin{cases}
+1 &\text{se } \omega \in A \\
+0 &\text{caso contrário}
+\end{cases}$$
+
+A sequência de conjuntos $A_1, A_2, \dots$ é **monotonicamente crescente** se $A_1 \subset A_2 \subset \dots$, e definimos $\lim_{n \rightarrow \infty} A_n = \cup_{i=1}^\infty A_i$.
+
+A sequência de conjuntos $A_1, A_2, \dots$ é **monotonicamente decrescente** se $A_1 \supset A_2 \supset \dots$ e então definimos $\lim_{n \rightarrow \infty} A_n = \cap_{i=1}^n A_i$.
+
+Para ambos os casos, escrevemos $A_n \rightarrow A$.
+
+
+## 1.2. Probabilidade
+
+A função $\mathbb{P}$ que assinala um número real $\mathbb{P}(A)$ para cada evento $A$  é uma **distribuição de probabilidade** ou uma **medida de probabilidade** se satisfaz os seguintes axiomas:
+
+- **Axioma 1**.
+$\mathbb{P}(A) \geq 0$ para todo $A$
+
+- **Axioma 2**.
+$\mathbb{P}(\Omega) = 1$
+
+- **Axioma 3**.
+Se $A_1, A_2, \dots$ são disjuntos então
+
+$$ \mathbb{P} \left( \cup_{i=1}^\infty A_i \right) = \sum_{i=1}^\infty \mathbb{P}(A_i) $$
+
+Algumas propriedades derivadas destes axiomas:
+
+- $\mathbb{P}(\varnothing) = 0$
+- $A \subset B \Rightarrow \mathbb{P}(A) \leq \mathbb{P}(B)$
+- $0 \leq \mathbb{P}(A) \leq 1$
+- $\mathbb{P}\left(A^c\right) = 1 - \mathbb{P}(A)$
+- $A \cap B = \varnothing \Rightarrow \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$
+
+
+
+**Lema 1**.  Para dois eventos quaisquer $A$ e $B$, $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb(B) - \mathbb{P}(AB)$.
+
+**Demonstração**. 
+$$
+\begin{align}
+\mathbb{P}(A \cup B) &= \mathbb{P}\left( (AB^c) \cup (AB) \cup (A^cB) \right) \\
+&= \mathbb{P}(AB^c) + \mathbb{P}(AB) + \mathbb{P}(A^cB) \\
+&= \mathbb{P}(AB^c) + \mathbb{P}(AB) + \mathbb{P}(A^cB) + \mathbb{P}(AB) - \mathbb{P}(AB) \\
+&= \mathbb{P}((AB^c) \cup (AB)) + \mathbb{P}((A^cB) \cup (AB)) - \mathbb{P}(AB) \\
+&= \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(AB)
+\end{align}
+$$
+
