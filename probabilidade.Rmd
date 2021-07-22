@@ -12,24 +12,24 @@ O **espaço amostral** $\Omega$  é um conjunto de resultados possíveis de um e
 
 **Eventos** são conjuntos de $\Omega$.
 
-### Complementar
+#### Complementar
 Dado um evento $A$, $A^c = \{ \omega \in \Omega : \text{not } (\omega \in A) \}$ denota o complementar de $A$.  Por sua vez, o complementar de $\Omega$ é o conjunto vazio $\varnothing$.
 
-### União
+#### União
 A união dos eventos $A$ e $B$ é definida por $A \cup B = \{ \omega \in \Omega : \omega \in A \text{ ou } \omega \in B \}$.
 
 Se $A_1, A_2, \dots$ é uma sequência de conjuntos, então:
 
 $$ \cup_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para algum } i \right\}$$
 
-### Interseção
+#### Interseção
 A interseção de $A$ and $B$ is $A \cap B = \{ \omega \in \Omega : \omega \in A \text{ e } \omega \in B \}$.
 
 Se $A_1, A_2, \dots$ é uma sequência de conjuntos, então:
 
 $$ \cap_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para todo } i \right\}$$
 
-### Diferença
+#### Diferença
 Seja $A - B = \left\{ \omega \in \Omega : \omega \in A \text{ e não } (\omega \in B) \right\}$.
 
 Se todo elemento de $A$ está contido em $B$ escrevemos $A \subset B$ ou $B \supset A$.
@@ -37,7 +37,7 @@ Se todo elemento de $A$ está contido em $B$ escrevemos $A \subset B$ ou $B \sup
 Se $A$ é um conjunto finito, $|A|$ denota o número de elementos em $A$.
 
 
-Um pouco de notação.
+**Um pouco de notação.**
 
 | Notação            | Significado                                        |
 |--------------------|----------------------------------------------------|
@@ -53,7 +53,7 @@ Um pouco de notação.
 | $\varnothing$      | conjunto vazio                                     |
 
 
-
+#### Partição do espaço amostral
 Os eventos $A_1, A_2, \dots$ são **disjuntos** or **mutuamente exclusivos** se $A_i \cap A_j = \varnothing$ whenever $i \neq j$.  
 
 Uma **partição** de $\Omega$ é uma sequência de conjuntos disjuntos $A_1, A_2, \dots$ tal que $\cup_{i=1}^\infty A_i = \Omega$. Dizemos que a união de eventos $A_1, A_2, \dots$ é exaustiva em $\Omega$.
@@ -110,3 +110,19 @@ $$
 \end{align}
 $$
 
+
+
+### Simulando o lançamento de uma moeda
+
+```{r}
+moeda <- c("cara", "coroa")
+
+sample(moeda, size = 1)
+```
+
+### Simulando o lançamento de um dado.
+```{r}
+dado <- c(1:6)
+
+sample(dado, size = 1)
+```
