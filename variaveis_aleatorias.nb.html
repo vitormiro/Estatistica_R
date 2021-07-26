@@ -1761,281 +1761,39 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<div id="probabilidade" class="section level1">
-<h1>1. Probabilidade</h1>
-<div id="eventos-e-espaço-amostral" class="section level2">
-<h2>1.1. Eventos e espaço amostral</h2>
-<p>O <strong>espaço amostral</strong> <span class="math inline">\(\Omega\)</span> é um conjunto de resultados possíveis de um experimento. Os elementos de <span class="math inline">\(\Omega\)</span> são denominados <strong>resultados ou pontos amostrais</strong>, dados por <span class="math inline">\(\omega\)</span> in <span class="math inline">\(\Omega\)</span>.</p>
-<p><strong>Eventos</strong> são conjuntos de <span class="math inline">\(\Omega\)</span>.</p>
-<div id="complementar" class="section level4">
-<h4>Complementar</h4>
-<p>Dado um evento <span class="math inline">\(A\)</span>, <span class="math inline">\(A^c = \{ \omega \in \Omega : \text{not } (\omega \in A) \}\)</span> denota o complementar de <span class="math inline">\(A\)</span>. Por sua vez, o complementar de <span class="math inline">\(\Omega\)</span> é o conjunto vazio <span class="math inline">\(\varnothing\)</span>.</p>
+<div id="variáveis-aleatórias" class="section level1">
+<h1>3. Variáveis Aleatórias</h1>
+<div id="variáveis-aleatórias-1" class="section level2">
+<h2>3.1. Variáveis aleatórias</h2>
 </div>
-<div id="união" class="section level4">
-<h4>União</h4>
-<p>A união dos eventos <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> é definida por <span class="math inline">\(A \cup B = \{ \omega \in \Omega : \omega \in A \text{ ou } \omega \in B \}\)</span>.</p>
-<p>Se <span class="math inline">\(A_1, A_2, \dots\)</span> é uma sequência de conjuntos, então:</p>
-<p><span class="math display">\[ \cup_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para algum } i \right\}\]</span></p>
+<div id="função-de-distribuição" class="section level2">
+<h2>3.2. Função de distribuição</h2>
 </div>
-<div id="interseção" class="section level4">
-<h4>Interseção</h4>
-<p>A interseção de <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(A \cap B = \{ \omega \in \Omega : \omega \in A \text{ e } \omega \in B \}\)</span>.</p>
-<p>Se <span class="math inline">\(A_1, A_2, \dots\)</span> é uma sequência de conjuntos, então:</p>
-<p><span class="math display">\[ \cap_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para todo } i \right\}\]</span></p>
+<div id="variáveis-aleatórias-discretas" class="section level2">
+<h2>3.3. Variáveis aleatórias discretas</h2>
 </div>
-<div id="diferença" class="section level4">
-<h4>Diferença</h4>
-<p>Seja <span class="math inline">\(A - B = \left\{ \omega \in \Omega : \omega \in A \text{ e não } (\omega \in B) \right\}\)</span>.</p>
-<p>Se todo elemento de <span class="math inline">\(A\)</span> está contido em <span class="math inline">\(B\)</span> escrevemos <span class="math inline">\(A \subset B\)</span> ou <span class="math inline">\(B \supset A\)</span>.</p>
-<p>Se <span class="math inline">\(A\)</span> é um conjunto finito, <span class="math inline">\(|A|\)</span> denota o número de elementos em <span class="math inline">\(A\)</span>.</p>
-<p><strong>Um pouco de notação.</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>Notação</th>
-<th>Significado</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\Omega\)</span></td>
-<td>espaço amostral</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\omega\)</span></td>
-<td>resultado</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(A\)</span></td>
-<td>evento (subconjunto de <span class="math inline">\(\Omega\)</span>)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\vert A \vert\)</span></td>
-<td>número de elementos em <span class="math inline">\(A\)</span> (se finito)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(A^c\)</span></td>
-<td>complementar de <span class="math inline">\(A\)</span> (não <span class="math inline">\(A\)</span>)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(A \cup B\)</span></td>
-<td>união (<span class="math inline">\(A\)</span> ou <span class="math inline">\(B\)</span>)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(A \cap B\)</span> ou <span class="math inline">\(AB\)</span></td>
-<td>interseção (<span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(A - B\)</span></td>
-<td>diferença (pontos em <span class="math inline">\(A\)</span> mas não em <span class="math inline">\(B\)</span>)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(A \subset B\)</span></td>
-<td>inclusão (<span class="math inline">\(A\)</span> é um subconjunto de <span class="math inline">\(B\)</span>)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\varnothing\)</span></td>
-<td>conjunto vazio</td>
-</tr>
-</tbody>
-</table>
+<div id="variáveis-aleatórias-contínuas" class="section level2">
+<h2>3.4. Variáveis aleatórias contínuas</h2>
 </div>
-<div id="partição-do-espaço-amostral" class="section level4">
-<h4>Partição do espaço amostral</h4>
-<p>Os eventos <span class="math inline">\(A_1, A_2, \dots\)</span> são <strong>disjuntos</strong> or <strong>mutuamente exclusivos</strong> se <span class="math inline">\(A_i \cap A_j = \varnothing\)</span> whenever <span class="math inline">\(i \neq j\)</span>.</p>
-<p>Uma <strong>partição</strong> de <span class="math inline">\(\Omega\)</span> é uma sequência de conjuntos disjuntos <span class="math inline">\(A_1, A_2, \dots\)</span> tal que <span class="math inline">\(\cup_{i=1}^\infty A_i = \Omega\)</span>. Dizemos que a união de eventos <span class="math inline">\(A_1, A_2, \dots\)</span> é exaustiva em <span class="math inline">\(\Omega\)</span>.</p>
-<p>Dado o evento <span class="math inline">\(A\)</span>, definimos a <strong>função indicadora de <span class="math inline">\(A\)</span></strong> por:</p>
-<p><span class="math display">\[ I_A(\omega) = I(\omega \in A) = \begin{cases}
-1 &amp;\text{se } \omega \in A \\
-0 &amp;\text{caso contrário}
-\end{cases}\]</span></p>
-<p>A sequência de conjuntos <span class="math inline">\(A_1, A_2, \dots\)</span> é <strong>monotonicamente crescente</strong> se <span class="math inline">\(A_1 \subset A_2 \subset \dots\)</span>, e definimos <span class="math inline">\(\lim_{n \rightarrow \infty} A_n = \cup_{i=1}^\infty A_i\)</span>.</p>
-<p>A sequência de conjuntos <span class="math inline">\(A_1, A_2, \dots\)</span> é <strong>monotonicamente decrescente</strong> se <span class="math inline">\(A_1 \supset A_2 \supset \dots\)</span> e então definimos <span class="math inline">\(\lim_{n \rightarrow \infty} A_n = \cap_{i=1}^n A_i\)</span>.</p>
-<p>Para ambos os casos, escrevemos <span class="math inline">\(A_n \rightarrow A\)</span>.</p>
+<div id="funções-de-uma-variável-aleatória" class="section level2">
+<h2>3.5. Funções de uma variável aleatória</h2>
 </div>
+<div id="valor-esperado" class="section level2">
+<h2>3.6. Valor esperado</h2>
 </div>
-<div id="probabilidade-1" class="section level2">
-<h2>1.2. Probabilidade</h2>
-<p>A função <span class="math inline">\(\mathbb{P}\)</span> que assinala um número real <span class="math inline">\(\mathbb{P}(A)\)</span> para cada evento <span class="math inline">\(A\)</span> é uma <strong>distribuição de probabilidade</strong> ou uma <strong>medida de probabilidade</strong> se satisfaz os seguintes axiomas:</p>
-<ul>
-<li><p><strong>Axioma 1</strong>. <span class="math inline">\(\mathbb{P}(A) \geq 0\)</span> para todo <span class="math inline">\(A\)</span></p></li>
-<li><p><strong>Axioma 2</strong>. <span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span></p></li>
-<li><p><strong>Axioma 3</strong>. Se <span class="math inline">\(A_1, A_2, \dots\)</span> são disjuntos então</p></li>
-</ul>
-<p><span class="math display">\[ \mathbb{P} \left( \cup_{i=1}^\infty A_i \right) = \sum_{i=1}^\infty \mathbb{P}(A_i) \]</span></p>
-<p>Algumas propriedades derivadas destes axiomas:</p>
-<ul>
-<li><span class="math inline">\(\mathbb{P}(\varnothing) = 0\)</span></li>
-<li><span class="math inline">\(A \subset B \Rightarrow \mathbb{P}(A) \leq \mathbb{P}(B)\)</span></li>
-<li><span class="math inline">\(0 \leq \mathbb{P}(A) \leq 1\)</span></li>
-<li><span class="math inline">\(\mathbb{P}\left(A^c\right) = 1 - \mathbb{P}(A)\)</span></li>
-<li><span class="math inline">\(A \cap B = \varnothing \Rightarrow \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)\)</span></li>
-</ul>
-<p><strong>Lema 1</strong>. Para dois eventos quaisquer <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, <span class="math inline">\(\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb(B) - \mathbb{P}(AB)\)</span>.</p>
-<p><strong>Demonstração</strong>. <span class="math display">\[
-\begin{align}
-\mathbb{P}(A \cup B) &amp;= \mathbb{P}\left( (AB^c) \cup (AB) \cup (A^cB) \right) \\
-&amp;= \mathbb{P}(AB^c) + \mathbb{P}(AB) + \mathbb{P}(A^cB) \\
-&amp;= \mathbb{P}(AB^c) + \mathbb{P}(AB) + \mathbb{P}(A^cB) + \mathbb{P}(AB) - \mathbb{P}(AB) \\
-&amp;= \mathbb{P}((AB^c) \cup (AB)) + \mathbb{P}((A^cB) \cup (AB)) - \mathbb{P}(AB) \\
-&amp;= \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(AB)
-\end{align}
-\]</span></p>
-<div id="simulando-o-lançamento-de-moedas" class="section level3">
-<h3>Simulando o lançamento de moedas</h3>
-<p>Exemplo: O lançamento de uma moeda.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9lZGEgPC0gYyhcImNhcmFcIiwgXCJjb3JvYVwiKVxuXG5zYW1wbGUobW9lZGEsIHNpemUgPSAxKVxuYGBgIn0= -->
-<pre class="r"><code>moeda &lt;- c(&quot;cara&quot;, &quot;coroa&quot;)
-
-sample(moeda, size = 1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY29yb2FcIlxuIn0= -->
-<pre><code>[1] &quot;coroa&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Exemplo: Lançamento de uma moeda 10 vezes:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzdWx0YWRvIDwtIHNhbXBsZShtb2VkYSwgMTAsIHJlcGxhY2UgPSBUUlVFKVxucmVzdWx0YWRvXG5gYGAifQ== -->
-<pre class="r"><code>resultado &lt;- sample(moeda, 10, replace = TRUE)
-resultado</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcImNvcm9hXCIgXCJjb3JvYVwiIFwiY29yb2FcIiBcImNvcm9hXCIgXCJjb3JvYVwiIFwiY2FyYVwiICBcImNvcm9hXCIgXCJjYXJhXCIgXG4gWzldIFwiY29yb2FcIiBcImNhcmFcIiBcbiJ9 -->
-<pre><code> [1] &quot;coroa&quot; &quot;coroa&quot; &quot;coroa&quot; &quot;coroa&quot; &quot;coroa&quot; &quot;cara&quot;  &quot;coroa&quot; &quot;cara&quot; 
- [9] &quot;coroa&quot; &quot;cara&quot; </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Tabular o resultado e converter em um dataframe:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGZfbW9lZGEgPC0gZGF0YS5mcmFtZSh0YWJsZShyZXN1bHRhZG8pKVxuZGZfbW9lZGFcbmBgYCJ9 -->
-<pre class="r"><code>df_moeda &lt;- data.frame(table(resultado))
-df_moeda</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJtMVEyMDdETUF6TmxtWlRLdzJRK0k1VjJ0QytZQlBQaUtlOW1qU0RpaXdaYmpyNCtvSFR4b2hGUEZnK3ZoejcyTSs3L1VPMXI0UVFVaFJrVWhFVXMrM1RhcjFaQzFGTUtacFFwWXoraTdydUNWQlNMa1pQeGNGZk5jNnNPUnZiRWJvYnFtTzIwSUNRc05JZVBXUTBwUzEwelBxZGRRQWRQQks2a1BGV1NUYlA2UTZPSmw5YW91bDZHNkR4ck9JUnpVZkdMTkYvMXN6KzV6RDVuWW1xR2doUUg1QW9vN0NyY1hOL0NxMTNOR3dhdjZVeThnU3p4RzN2NHZKbXFkOTY5NzdjeEFWSmdFaUNrcGkvT0s0c1dKamlieG4zMmpyREg3SHdZbXdLYnVqSTRjYjZoSzBMZkFsbHV6cjRBTnhYYVc4NU16Nzk4Z01uQkRWakpRSUFBQT09In0= -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["resultado"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Freq"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"cara","2":"3"},{"1":"coroa","2":"7"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
+<div id="momentos" class="section level2">
+<h2>3.7. Momentos</h2>
 </div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Usando a função <code>prop.table()</code>, podemos adicionar uma coluna adicional para mostrar as probabilidades de “cara” e “coroa”.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGZfbW9lZGFfcHJvYiA8LSBjYmluZChkZl9tb2VkYSwgcHJvcC50YWJsZShkZl9tb2VkYSRGcmVxKSlcbm5hbWVzKGRmX21vZWRhX3Byb2IpIDwtIGMoXCJSZXN1bHRhZG9cIixcIkZyZXF1w6puY2lhXCIsIFwiUHJvYmFiaWxpZGFkZVwiKVxuZGZfbW9lZGFfcHJvYlxuYGBgIn0= -->
-<pre class="r"><code>df_moeda_prob &lt;- cbind(df_moeda, prop.table(df_moeda$Freq))
-names(df_moeda_prob) &lt;- c(&quot;Resultado&quot;,&quot;Frequência&quot;, &quot;Probabilidade&quot;)
-df_moeda_prob</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MiwibmNvbCI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJtMVJ6VTdETUF6MmxuYlRLbTBnOFJ5cnhDYTREZ25FZWRwcFZ6ZE5JU0lrSTAyQjkrUWRPUEFRQXlkTkpxMGlrbVg3cy8zNUo3dUgvYnJZRndEQUlDTmhPWmt3dWQ5ZXIyNVdBTm1ZdkJGRlpsNS9VdFpWU0FVMko5MEhnejVMbkNqeExsUkwxbVdJOW1qRzBXSzBjMjZzd1VGWnpoVzJxZXJFMVNCM3hwSjFKRWxkYVFLWWtpeTh2L2xhaDdmNWJzSWIwbXA4RlltV1JYQzJFMjJuSE5ZRzRNNER4YU1WYjkyUDVqTE5PTjlhVTJFbGxheXhGZ1BTbVRVZlpTTCs1eGJzZDdCSFVhUERzckZVMHU5eVJqYzFCeWVOSnJLeFAzQStLQjdaQVhEUmFkKzhYdkxuVHI4c2IzMkRPQURFZ2VJd0o1djFMYk0wV0o0T0xQU1QxQ0lkUzJFbFZIUVd0R1RZc1R4WXFWM2FoTkMyZE1aaHlpdTRVUW5wLytuNEI3UkN4QnBZQWdBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Resultado"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Frequência"],"name":[2],"type":["int"],"align":["right"]},{"label":["Probabilidade"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"cara","2":"3","3":"0.3"},{"1":"coroa","2":"7","3":"0.7"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
-  </script>
+<div id="parâmetros-de-ordem" class="section level2">
+<h2>3.8. Parâmetros de ordem</h2>
 </div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="simulando-o-lançamento-de-dados." class="section level3">
-<h3>Simulando o lançamento de dados.</h3>
-<p>Exemplo: O lançamento de um dado.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGFkbyA8LSBjKDE6Nilcblxuc2FtcGxlKGRhZG8sIHNpemUgPSAxKVxuYGBgIn0= -->
-<pre class="r"><code>dado &lt;- c(1:6)
-
-sample(dado, size = 1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Exemplo: O lançamento de um dado 10 vezes.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGFkbyA8LSBjKDE6Nilcblxuc2FtcGxlKGRhZG8sIHNpemUgPSAxKVxuYGBgIn0= -->
-<pre class="r"><code>dado &lt;- c(1:6)
-
-sample(dado, size = 1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDZcbiJ9 -->
-<pre><code>[1] 6</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Tabulando frequências no lançamento de um dado 100 vezes.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVzdWx0YWRvMiA8LSBzYW1wbGUoZGFkbywgMTAwLCByZXBsYWNlID0gVFJVRSlcbmRmX2RhZG8gPC0gZGF0YS5mcmFtZSh0YWJsZShyZXN1bHRhZG8yKSlcbmRmX2RhZG9cbmBgYCJ9 -->
-<pre class="r"><code>resultado2 &lt;- sample(dado, 100, replace = TRUE)
-df_dado &lt;- data.frame(table(resultado2))
-df_dado</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVIyMDdETUF4TjAzWm9rYmlwMzdGSzY5aCtBTVF6NG1tdm9jMVl0WkNNTkdVODh1VURKN1VuMmtoV2ppL24ySEZlbjdZcnNSV01zWlJsWUdrT2tNMGVYNWJWdW1JczQrQWxrSm1IK3h1cUNnQVFUSzlEV1V4R0g2aFFEWllQOFJGeHB0V1gwaDJndTVoRnVTV0Jpc0NLd0FPQk5ZSE5SRE92dGV4STh0Sm9KMnR2SGFBekdJMVlZTlU5M21oak9TTS9GTWx4REFxbnVsNTcyVmlhTUh0MjZuTkNuVHQ3S29rZWV2SWZGZyt1SWYyZFRDa2E2V1c1YzBBWkpoM0pYZG1qYjYwQk1WN2dQditURXpjSjNQWW1ORzhXOWI0M2g4VW1OTUIvWVRoUWdvc2d6SWVXR1EyVzAvcVVlVytOb3BWbythWTBPamZ3eVBqRzh1aGE0eThMc3FldTlOWkxxaE8xMVJRWmZ1SDhCOVNEWDRSakFnQUEifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["resultado2"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Freq"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"19"},{"1":"2","2":"16"},{"1":"3","2":"17"},{"1":"4","2":"16"},{"1":"5","2":"16"},{"1":"6","2":"16"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Construindo uma tabela de frequências.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGZfZGFkb19wcm9iIDwtIGNiaW5kKGRmX2RhZG8sIHByb3AudGFibGUoZGZfZGFkbyRGcmVxKSlcbm5hbWVzKGRmX2RhZG9fcHJvYikgPC0gYyhcIlJlc3VsdGFkb1wiLFwiRnJlcXXDqm5jaWFcIiwgXCJQcm9iYWJpbGlkYWRlXCIpXG5kZl9kYWRvX3Byb2JcbmBgYCJ9 -->
-<pre class="r"><code>df_dado_prob &lt;- cbind(df_dado, prop.table(df_dado$Freq))
-names(df_dado_prob) &lt;- c(&quot;Resultado&quot;,&quot;Frequência&quot;, &quot;Probabilidade&quot;)
-df_dado_prob</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVJQVS9ETUJDOTVxT29rVnBBWldabWFhUzJGTVlpZ1dBdG5UcXdPSWtMRWNZdWpnTUlGaFptL2drek14OFNmNE1WWnRhQ25mZ3FHa3VXbjk4OXY3dnpqUThtL1dBU0FJQUxudDZ1cnlIVTkwZmQzcUFINERuNlZ0T1Joamx2dEtwZFNNRnRHbGtSQkhCS1Rzc0EvSkpmZWxobjlJcXlUS08xSW1ydHVnaDZDUG9JdGhFTUVPeFVQUDJZa1F3dEY0bW1KRlpDYWpUWEcwdHNXOVc2UFhHM1RIejRjZno5c1BrOEhyN2RmaDQ5YmR3TjMxOGVUN1orWGhmM3lsa3RnNU1MaW1XNGxteU1hWll6UlJJQnNHZUk0RkRTeS95THh5bXhrdVpJaW9oRUtVc1RrdENLYVVPSzZ4Q05UUmZPUFJUTGZxejdXK2s3U0lnaTRWVHFKMlh2UzNZcllxWlN3YldaMDdZVCt2KzRKaXZFYXM1TjhxUVRuK1g4dkxOckV0aEpneTJvWnI4V3NWdW05TEF3SHdkQytXbktLWDRXSXhGbDl0TFNUUlk5aGpPWmNvV2RhRFlMbFZBRWRVRXNHRExsWE9kL1JLYUh0TFVDQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Resultado"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Frequência"],"name":[2],"type":["int"],"align":["right"]},{"label":["Probabilidade"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"19","3":"0.19"},{"1":"2","2":"16","3":"0.16"},{"1":"3","2":"17","3":"0.17"},{"1":"4","2":"16","3":"0.16"},{"1":"5","2":"16","3":"0.16"},{"1":"6","2":"16","3":"0.16"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="métodos-de-contagem" class="section level2">
-<h2>1.3. Métodos de contagem</h2>
-</div>
-<div id="probabilidade-condicional" class="section level2">
-<h2>1.4. Probabilidade condicional</h2>
-<ul>
-<li><p>Se <span class="math inline">\(\mathbb{P}(B) &gt; 0\)</span> então a <strong>probabilidade condicional</strong> de <span class="math inline">\(A\)</span> dado <span class="math inline">\(B\)</span> é</p>
-<p><span class="math display">\[ \mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \]</span></p></li>
-<li><p><span class="math inline">\(\mathbb{P}(\cdot | B)\)</span> satisfaz os aximos de probabilidade, para um <span class="math inline">\(B\)</span> fixo.</p></li>
-<li><p>Em geral, <span class="math inline">\(\mathbb{P}(A | \cdot)\)</span> não satisfaz os axiomas de probabilidade para um <span class="math inline">\(A\)</span> fixo.</p></li>
-<li><p>Em geral, <span class="math inline">\(\mathbb{P}(B | A) \neq \mathbb{P}(A | B)\)</span>.</p></li>
-</ul>
-</div>
-<div id="teorema-de-bayes" class="section level2">
-<h2>1.5. Teorema de Bayes</h2>
-<p><strong>Teorema (A Lei de Probabilidade Total)</strong>. Seja <span class="math inline">\(A_1, \dots, A_k\)</span> uma partição de <span class="math inline">\(\Omega\)</span>. Então, para qualquer evento <span class="math inline">\(B\)</span>,</p>
-<p><span class="math display">\[ \mathbb{P}(B) = \sum_{i=1}^k \mathbb{P}(B | A_i) \mathbb{P}(A_i) \]</span></p>
-<p><strong>Demonstração</strong>. Seja <span class="math inline">\(C_j = BA_j\)</span>. Note que <span class="math inline">\(C_j\)</span>’s são disjuntos e que <span class="math inline">\(B = \cup_{i=1}^k C_j\)</span>. Portanto:</p>
-<p><span class="math display">\[ \mathbb{P}(B) = \sum_j \mathbb{P}(C_j)  = \sum_j \mathbb{P}(B \cap A_j) = \sum_j \mathbb{P}(B | A_j) \mathbb{P}(A_j) \]</span> <strong>Teorema (Regra de Bayes)</strong>. Seja <span class="math inline">\(A_1, \dots, A_k\)</span> uma partição de <span class="math inline">\(\Omega\)</span> tal que <span class="math inline">\(\mathbb{P}(A_i) &gt; 0\)</span> para cada <span class="math inline">\(i\)</span>. Se <span class="math inline">\(\mathbb{P}(B) &gt; 0\)</span>, então, para cada <span class="math inline">\(i = 1, \dots, k\)</span>,</p>
-<p><span class="math display">\[ \mathbb{P}(A_i | B) = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\sum_j \mathbb{P}(B | A_j) \mathbb{P}(A_j)} \]</span></p>
-<p><span class="math inline">\(\mathbb{P}(A_i)\)</span> é denominada como <strong>probabilidade a priori</strong> de <span class="math inline">\(A_i\)</span> e <span class="math inline">\(\mathbb{P}(A_i | B)\)</span> como <strong>probabilidade a posteriori</strong> de <span class="math inline">\(A_i\)</span>.</p>
-<p><strong>Demonstração</strong>. Aplicamos a definição de probabilidade condicional e a Lei de Probabilidade Total:</p>
-<p><span class="math display">\[ \mathbb{P}(A_i | B) = \frac{\mathbb{P}(A_i \cap B) }{\mathbb{P}(B)} = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\mathbb{P}(B)} = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\sum_j \mathbb{P}(B | A_j) \mathbb{P}(A_j)}\]</span></p>
-</div>
-<div id="eventos-independentes" class="section level2">
-<h2>1.6. Eventos independentes</h2>
-<p>Os eventos <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> são independentes se e somente se <span class="math inline">\(\mathbb{P}(A | B) = \mathbb{P}(A)\)</span>.</p>
+<div id="função-geradora-de-momentos" class="section level2">
+<h2>3.9. Função geradora de momentos</h2>
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDEuIFByb2JhYmlsaWRhZGUNCg0KIyMgMS4xLiBFdmVudG9zIGUgZXNwYcOnbyBhbW9zdHJhbA0KDQpPICoqZXNwYcOnbyBhbW9zdHJhbCoqICRcT21lZ2EkICDDqSB1bSBjb25qdW50byBkZSByZXN1bHRhZG9zIHBvc3PDrXZlaXMgZGUgdW0gZXhwZXJpbWVudG8uICBPcyBlbGVtZW50b3MgZGUgJFxPbWVnYSQgc8OjbyBkZW5vbWluYWRvcyAqKnJlc3VsdGFkb3Mgb3UgcG9udG9zIGFtb3N0cmFpcyoqLCBkYWRvcyBwb3IgJFxvbWVnYSQgaW4gJFxPbWVnYSQuIA0KDQoqKkV2ZW50b3MqKiBzw6NvIGNvbmp1bnRvcyBkZSAkXE9tZWdhJC4NCg0KIyMjIyBDb21wbGVtZW50YXINCkRhZG8gdW0gZXZlbnRvICRBJCwgJEFeYyA9IFx7IFxvbWVnYSBcaW4gXE9tZWdhIDogXHRleHR7bm90IH0gKFxvbWVnYSBcaW4gQSkgXH0kIGRlbm90YSBvIGNvbXBsZW1lbnRhciBkZSAkQSQuICBQb3Igc3VhIHZleiwgbyBjb21wbGVtZW50YXIgZGUgJFxPbWVnYSQgw6kgbyBjb25qdW50byB2YXppbyAkXHZhcm5vdGhpbmckLg0KDQojIyMjIFVuacOjbw0KQSB1bmnDo28gZG9zIGV2ZW50b3MgJEEkIGUgJEIkIMOpIGRlZmluaWRhIHBvciAkQSBcY3VwIEIgPSBceyBcb21lZ2EgXGluIFxPbWVnYSA6IFxvbWVnYSBcaW4gQSBcdGV4dHsgb3UgfSBcb21lZ2EgXGluIEIgXH0kLg0KDQpTZSAkQV8xLCBBXzIsIFxkb3RzJCDDqSB1bWEgc2VxdcOqbmNpYSBkZSBjb25qdW50b3MsIGVudMOjbzoNCg0KJCQgXGN1cF97aT0xfV5caW5mdHkgQV9pID0gXGxlZnRceyBcb21lZ2EgXGluIFxPbWVnYSA6IFxvbWVnYSBcaW4gQV9pIFx0ZXh0eyBwYXJhIGFsZ3VtIH0gaSBccmlnaHRcfSQkDQoNCiMjIyMgSW50ZXJzZcOnw6NvDQpBIGludGVyc2XDp8OjbyBkZSAkQSQgYW5kICRCJCBpcyAkQSBcY2FwIEIgPSBceyBcb21lZ2EgXGluIFxPbWVnYSA6IFxvbWVnYSBcaW4gQSBcdGV4dHsgZSB9IFxvbWVnYSBcaW4gQiBcfSQuDQoNClNlICRBXzEsIEFfMiwgXGRvdHMkIMOpIHVtYSBzZXF1w6puY2lhIGRlIGNvbmp1bnRvcywgZW50w6NvOg0KDQokJCBcY2FwX3tpPTF9XlxpbmZ0eSBBX2kgPSBcbGVmdFx7IFxvbWVnYSBcaW4gXE9tZWdhIDogXG9tZWdhIFxpbiBBX2kgXHRleHR7IHBhcmEgdG9kbyB9IGkgXHJpZ2h0XH0kJA0KDQojIyMjIERpZmVyZW7Dp2ENClNlamEgJEEgLSBCID0gXGxlZnRceyBcb21lZ2EgXGluIFxPbWVnYSA6IFxvbWVnYSBcaW4gQSBcdGV4dHsgZSBuw6NvIH0gKFxvbWVnYSBcaW4gQikgXHJpZ2h0XH0kLg0KDQpTZSB0b2RvIGVsZW1lbnRvIGRlICRBJCBlc3TDoSBjb250aWRvIGVtICRCJCBlc2NyZXZlbW9zICRBIFxzdWJzZXQgQiQgb3UgJEIgXHN1cHNldCBBJC4NCg0KU2UgJEEkIMOpIHVtIGNvbmp1bnRvIGZpbml0bywgJHxBfCQgZGVub3RhIG8gbsO6bWVybyBkZSBlbGVtZW50b3MgZW0gJEEkLg0KDQoNCioqVW0gcG91Y28gZGUgbm90YcOnw6NvLioqDQoNCnwgTm90YcOnw6NvICAgICAgICAgICAgfCBTaWduaWZpY2FkbyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQp8LS0tLS0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLXwNCnwgJFxPbWVnYSQgICAgICAgICAgIHwgZXNwYcOnbyBhbW9zdHJhbCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgJFxvbWVnYSQgICAgICAgICAgIHwgcmVzdWx0YWRvICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCANCnwgJEEkICAgICAgICAgICAgICAgIHwgZXZlbnRvIChzdWJjb25qdW50byBkZSAkXE9tZWdhJCkgICAgICAgICAgICAgICAgICAgfA0KfCAkXHZlcnQgQSBcdmVydCQgICAgfCBuw7ptZXJvIGRlIGVsZW1lbnRvcyBlbSAkQSQgKHNlIGZpbml0bykgICAgICAgICAgICAgfA0KfCAkQV5jJCAgICAgICAgICAgICAgfCBjb21wbGVtZW50YXIgZGUgJEEkIChuw6NvICRBJCkgICAgICAgICAgICAgICAgICAgICAgfA0KfCAkQSBcY3VwIEIkICAgICAgICAgfCB1bmnDo28gKCRBJCBvdSAkQiQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KfCAkQSBcY2FwIEIkIG91ICRBQiQgfCBpbnRlcnNlw6fDo28gKCRBJCBlICRCJCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCnwgJEEgLSBCJCAgICAgICAgICAgIHwgZGlmZXJlbsOnYSAocG9udG9zIGVtICRBJCBtYXMgbsOjbyBlbSAkQiQpICAgICAgICAgICB8DQp8ICRBIFxzdWJzZXQgQiQgICAgICB8IGluY2x1c8OjbyAoJEEkIMOpIHVtIHN1YmNvbmp1bnRvIGRlICRCJCkgICAgICAgICAgICAgfA0KfCAkXHZhcm5vdGhpbmckICAgICAgfCBjb25qdW50byB2YXppbyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8DQoNCg0KIyMjIyBQYXJ0acOnw6NvIGRvIGVzcGHDp28gYW1vc3RyYWwNCk9zIGV2ZW50b3MgJEFfMSwgQV8yLCBcZG90cyQgc8OjbyAqKmRpc2p1bnRvcyoqIG9yICoqbXV0dWFtZW50ZSBleGNsdXNpdm9zKiogc2UgJEFfaSBcY2FwIEFfaiA9IFx2YXJub3RoaW5nJCB3aGVuZXZlciAkaSBcbmVxIGokLiAgDQoNClVtYSAqKnBhcnRpw6fDo28qKiBkZSAkXE9tZWdhJCDDqSB1bWEgc2VxdcOqbmNpYSBkZSBjb25qdW50b3MgZGlzanVudG9zICRBXzEsIEFfMiwgXGRvdHMkIHRhbCBxdWUgJFxjdXBfe2k9MX1eXGluZnR5IEFfaSA9IFxPbWVnYSQuIERpemVtb3MgcXVlIGEgdW5pw6NvIGRlIGV2ZW50b3MgJEFfMSwgQV8yLCBcZG90cyQgw6kgZXhhdXN0aXZhIGVtICRcT21lZ2EkLg0KDQpEYWRvIG8gZXZlbnRvICRBJCwgZGVmaW5pbW9zIGEgKipmdW7Dp8OjbyBpbmRpY2Fkb3JhIGRlICRBJCoqIHBvcjoNCg0KJCQgSV9BKFxvbWVnYSkgPSBJKFxvbWVnYSBcaW4gQSkgPSBcYmVnaW57Y2FzZXN9DQoxICZcdGV4dHtzZSB9IFxvbWVnYSBcaW4gQSBcXA0KMCAmXHRleHR7Y2FzbyBjb250csOhcmlvfQ0KXGVuZHtjYXNlc30kJA0KDQpBIHNlcXXDqm5jaWEgZGUgY29uanVudG9zICRBXzEsIEFfMiwgXGRvdHMkIMOpICoqbW9ub3RvbmljYW1lbnRlIGNyZXNjZW50ZSoqIHNlICRBXzEgXHN1YnNldCBBXzIgXHN1YnNldCBcZG90cyQsIGUgZGVmaW5pbW9zICRcbGltX3tuIFxyaWdodGFycm93IFxpbmZ0eX0gQV9uID0gXGN1cF97aT0xfV5caW5mdHkgQV9pJC4NCg0KQSBzZXF1w6puY2lhIGRlIGNvbmp1bnRvcyAkQV8xLCBBXzIsIFxkb3RzJCDDqSAqKm1vbm90b25pY2FtZW50ZSBkZWNyZXNjZW50ZSoqIHNlICRBXzEgXHN1cHNldCBBXzIgXHN1cHNldCBcZG90cyQgZSBlbnTDo28gZGVmaW5pbW9zICRcbGltX3tuIFxyaWdodGFycm93IFxpbmZ0eX0gQV9uID0gXGNhcF97aT0xfV5uIEFfaSQuDQoNClBhcmEgYW1ib3Mgb3MgY2Fzb3MsIGVzY3JldmVtb3MgJEFfbiBccmlnaHRhcnJvdyBBJC4NCg0KDQojIyAxLjIuIFByb2JhYmlsaWRhZGUNCg0KQSBmdW7Dp8OjbyAkXG1hdGhiYntQfSQgcXVlIGFzc2luYWxhIHVtIG7Dum1lcm8gcmVhbCAkXG1hdGhiYntQfShBKSQgcGFyYSBjYWRhIGV2ZW50byAkQSQgIMOpIHVtYSAqKmRpc3RyaWJ1acOnw6NvIGRlIHByb2JhYmlsaWRhZGUqKiBvdSB1bWEgKiptZWRpZGEgZGUgcHJvYmFiaWxpZGFkZSoqIHNlIHNhdGlzZmF6IG9zIHNlZ3VpbnRlcyBheGlvbWFzOg0KDQotICoqQXhpb21hIDEqKi4NCiRcbWF0aGJie1B9KEEpIFxnZXEgMCQgcGFyYSB0b2RvICRBJA0KDQotICoqQXhpb21hIDIqKi4NCiRcbWF0aGJie1B9KFxPbWVnYSkgPSAxJA0KDQotICoqQXhpb21hIDMqKi4NClNlICRBXzEsIEFfMiwgXGRvdHMkIHPDo28gZGlzanVudG9zIGVudMOjbw0KDQokJCBcbWF0aGJie1B9IFxsZWZ0KCBcY3VwX3tpPTF9XlxpbmZ0eSBBX2kgXHJpZ2h0KSA9IFxzdW1fe2k9MX1eXGluZnR5IFxtYXRoYmJ7UH0oQV9pKSAkJA0KDQpBbGd1bWFzIHByb3ByaWVkYWRlcyBkZXJpdmFkYXMgZGVzdGVzIGF4aW9tYXM6DQoNCi0gJFxtYXRoYmJ7UH0oXHZhcm5vdGhpbmcpID0gMCQNCi0gJEEgXHN1YnNldCBCIFxSaWdodGFycm93IFxtYXRoYmJ7UH0oQSkgXGxlcSBcbWF0aGJie1B9KEIpJA0KLSAkMCBcbGVxIFxtYXRoYmJ7UH0oQSkgXGxlcSAxJA0KLSAkXG1hdGhiYntQfVxsZWZ0KEFeY1xyaWdodCkgPSAxIC0gXG1hdGhiYntQfShBKSQNCi0gJEEgXGNhcCBCID0gXHZhcm5vdGhpbmcgXFJpZ2h0YXJyb3cgXG1hdGhiYntQfShBIFxjdXAgQikgPSBcbWF0aGJie1B9KEEpICsgXG1hdGhiYntQfShCKSQNCg0KDQoNCioqTGVtYSAxKiouICBQYXJhIGRvaXMgZXZlbnRvcyBxdWFpc3F1ZXIgJEEkIGUgJEIkLCAkXG1hdGhiYntQfShBIFxjdXAgQikgPSBcbWF0aGJie1B9KEEpICsgXG1hdGhiYihCKSAtIFxtYXRoYmJ7UH0oQUIpJC4NCg0KKipEZW1vbnN0cmHDp8OjbyoqLiANCiQkDQpcYmVnaW57YWxpZ259DQpcbWF0aGJie1B9KEEgXGN1cCBCKSAmPSBcbWF0aGJie1B9XGxlZnQoIChBQl5jKSBcY3VwIChBQikgXGN1cCAoQV5jQikgXHJpZ2h0KSBcXA0KJj0gXG1hdGhiYntQfShBQl5jKSArIFxtYXRoYmJ7UH0oQUIpICsgXG1hdGhiYntQfShBXmNCKSBcXA0KJj0gXG1hdGhiYntQfShBQl5jKSArIFxtYXRoYmJ7UH0oQUIpICsgXG1hdGhiYntQfShBXmNCKSArIFxtYXRoYmJ7UH0oQUIpIC0gXG1hdGhiYntQfShBQikgXFwNCiY9IFxtYXRoYmJ7UH0oKEFCXmMpIFxjdXAgKEFCKSkgKyBcbWF0aGJie1B9KChBXmNCKSBcY3VwIChBQikpIC0gXG1hdGhiYntQfShBQikgXFwNCiY9IFxtYXRoYmJ7UH0oQSkgKyBcbWF0aGJie1B9KEIpIC0gXG1hdGhiYntQfShBQikNClxlbmR7YWxpZ259DQokJA0KDQoNCg0KIyMjIFNpbXVsYW5kbyBvIGxhbsOnYW1lbnRvIGRlIG1vZWRhcw0KDQoNCkV4ZW1wbG86IE8gbGFuw6dhbWVudG8gZGUgdW1hIG1vZWRhLg0KYGBge3J9DQptb2VkYSA8LSBjKCJjYXJhIiwgImNvcm9hIikNCg0Kc2FtcGxlKG1vZWRhLCBzaXplID0gMSkNCmBgYA0KDQpFeGVtcGxvOiBMYW7Dp2FtZW50byBkZSB1bWEgbW9lZGEgMTAgdmV6ZXM6DQpgYGB7cn0NCnJlc3VsdGFkbyA8LSBzYW1wbGUobW9lZGEsIDEwLCByZXBsYWNlID0gVFJVRSkNCnJlc3VsdGFkbw0KYGBgDQpUYWJ1bGFyIG8gcmVzdWx0YWRvIGUgY29udmVydGVyIGVtIHVtIGRhdGFmcmFtZToNCmBgYHtyfQ0KZGZfbW9lZGEgPC0gZGF0YS5mcmFtZSh0YWJsZShyZXN1bHRhZG8pKQ0KZGZfbW9lZGENCmBgYA0KVXNhbmRvIGEgZnVuw6fDo28gYHByb3AudGFibGUoKWAsIHBvZGVtb3MgYWRpY2lvbmFyIHVtYSBjb2x1bmEgYWRpY2lvbmFsIHBhcmEgbW9zdHJhciBhcyBwcm9iYWJpbGlkYWRlcyBkZSAiY2FyYSIgZSAiY29yb2EiLg0KDQpgYGB7cn0NCmRmX21vZWRhX3Byb2IgPC0gY2JpbmQoZGZfbW9lZGEsIHByb3AudGFibGUoZGZfbW9lZGEkRnJlcSkpDQpuYW1lcyhkZl9tb2VkYV9wcm9iKSA8LSBjKCJSZXN1bHRhZG8iLCJGcmVxdcOqbmNpYSIsICJQcm9iYWJpbGlkYWRlIikNCmRmX21vZWRhX3Byb2INCmBgYA0KDQojIyMgU2ltdWxhbmRvIG8gbGFuw6dhbWVudG8gZGUgZGFkb3MuDQoNCkV4ZW1wbG86IE8gbGFuw6dhbWVudG8gZGUgdW0gZGFkby4NCmBgYHtyfQ0KZGFkbyA8LSBjKDE6NikNCg0Kc2FtcGxlKGRhZG8sIHNpemUgPSAxKQ0KYGBgDQoNCg0KRXhlbXBsbzogTyBsYW7Dp2FtZW50byBkZSB1bSBkYWRvIDEwIHZlemVzLg0KYGBge3J9DQpkYWRvIDwtIGMoMTo2KQ0KDQpzYW1wbGUoZGFkbywgc2l6ZSA9IDEpDQpgYGANCg0KVGFidWxhbmRvIGZyZXF1w6puY2lhcyBubyBsYW7Dp2FtZW50byBkZSB1bSBkYWRvIDEwMCB2ZXplcy4NCmBgYHtyfQ0KcmVzdWx0YWRvMiA8LSBzYW1wbGUoZGFkbywgMTAwLCByZXBsYWNlID0gVFJVRSkNCmRmX2RhZG8gPC0gZGF0YS5mcmFtZSh0YWJsZShyZXN1bHRhZG8yKSkNCmRmX2RhZG8NCmBgYA0KQ29uc3RydWluZG8gdW1hIHRhYmVsYSBkZSBmcmVxdcOqbmNpYXMuDQpgYGB7cn0NCmRmX2RhZG9fcHJvYiA8LSBjYmluZChkZl9kYWRvLCBwcm9wLnRhYmxlKGRmX2RhZG8kRnJlcSkpDQpuYW1lcyhkZl9kYWRvX3Byb2IpIDwtIGMoIlJlc3VsdGFkbyIsIkZyZXF1w6puY2lhIiwgIlByb2JhYmlsaWRhZGUiKQ0KZGZfZGFkb19wcm9iDQpgYGANCg0KIyMgMS4zLiBNw6l0b2RvcyBkZSBjb250YWdlbQ0KDQoNCiMjIDEuNC4gUHJvYmFiaWxpZGFkZSBjb25kaWNpb25hbA0KDQotIFNlICRcbWF0aGJie1B9KEIpID4gMCQgZW50w6NvIGEgKipwcm9iYWJpbGlkYWRlIGNvbmRpY2lvbmFsKiogZGUgJEEkIGRhZG8gJEIkIMOpDQoNCiAgJCQgXG1hdGhiYntQfShBIHwgQikgPSBcZnJhY3tcbWF0aGJie1B9KEEgXGNhcCBCKX17XG1hdGhiYntQfShCKX0gJCQNCiAgDQotICRcbWF0aGJie1B9KFxjZG90IHwgQikkIHNhdGlzZmF6IG9zIGF4aW1vcyBkZSBwcm9iYWJpbGlkYWRlLCBwYXJhIHVtICRCJCBmaXhvLg0KDQotIEVtIGdlcmFsLCAkXG1hdGhiYntQfShBIHwgXGNkb3QpJCBuw6NvIHNhdGlzZmF6IG9zIGF4aW9tYXMgZGUgcHJvYmFiaWxpZGFkZSBwYXJhIHVtICRBJCBmaXhvLg0KDQotIEVtIGdlcmFsLCAkXG1hdGhiYntQfShCIHwgQSkgXG5lcSBcbWF0aGJie1B9KEEgfCBCKSQuDQoNCg0KIyMgMS41LiBUZW9yZW1hIGRlIEJheWVzDQoNCioqVGVvcmVtYSAoQSBMZWkgZGUgUHJvYmFiaWxpZGFkZSBUb3RhbCkqKi4gU2VqYSAkQV8xLCBcZG90cywgQV9rJCB1bWEgcGFydGnDp8OjbyBkZSAkXE9tZWdhJC4gIEVudMOjbywgcGFyYSBxdWFscXVlciBldmVudG8gJEIkLA0KDQokJCBcbWF0aGJie1B9KEIpID0gXHN1bV97aT0xfV5rIFxtYXRoYmJ7UH0oQiB8IEFfaSkgXG1hdGhiYntQfShBX2kpICQkDQoNCioqRGVtb25zdHJhw6fDo28qKi4gIFNlamEgJENfaiA9IEJBX2okLiBOb3RlIHF1ZSAkQ19qJCdzIHPDo28gZGlzanVudG9zIGUgcXVlICRCID0gXGN1cF97aT0xfV5rIENfaiQuIFBvcnRhbnRvOg0KDQokJCBcbWF0aGJie1B9KEIpID0gXHN1bV9qIFxtYXRoYmJ7UH0oQ19qKSAgPSBcc3VtX2ogXG1hdGhiYntQfShCIFxjYXAgQV9qKSA9IFxzdW1faiBcbWF0aGJie1B9KEIgfCBBX2opIFxtYXRoYmJ7UH0oQV9qKSAkJA0KKipUZW9yZW1hIChSZWdyYSBkZSBCYXllcykqKi4gU2VqYSAkQV8xLCBcZG90cywgQV9rJCB1bWEgcGFydGnDp8OjbyBkZSAkXE9tZWdhJCB0YWwgcXVlICRcbWF0aGJie1B9KEFfaSkgPiAwJCBwYXJhIGNhZGEgJGkkLiBTZSAkXG1hdGhiYntQfShCKSA+IDAkLCBlbnTDo28sIHBhcmEgY2FkYSAkaSA9IDEsIFxkb3RzLCBrJCwNCg0KJCQgXG1hdGhiYntQfShBX2kgfCBCKSA9IFxmcmFje1xtYXRoYmJ7UH0oQiB8IEFfaSkgXG1hdGhiYntQfShBX2kpfXtcc3VtX2ogXG1hdGhiYntQfShCIHwgQV9qKSBcbWF0aGJie1B9KEFfail9ICQkDQoNCiRcbWF0aGJie1B9KEFfaSkkIMOpIGRlbm9taW5hZGEgY29tbyAqKnByb2JhYmlsaWRhZGUgYSBwcmlvcmkqKiBkZSAkQV9pJCBlICRcbWF0aGJie1B9KEFfaSB8IEIpJCBjb21vICoqcHJvYmFiaWxpZGFkZSBhIHBvc3RlcmlvcmkqKiBkZSAkQV9pJC4NCg0KKipEZW1vbnN0cmHDp8OjbyoqLiAgQXBsaWNhbW9zIGEgZGVmaW5pw6fDo28gZGUgcHJvYmFiaWxpZGFkZSBjb25kaWNpb25hbCBlIGEgTGVpIGRlIFByb2JhYmlsaWRhZGUgVG90YWw6DQoNCiQkIFxtYXRoYmJ7UH0oQV9pIHwgQikgPSBcZnJhY3tcbWF0aGJie1B9KEFfaSBcY2FwIEIpIH17XG1hdGhiYntQfShCKX0gPSBcZnJhY3tcbWF0aGJie1B9KEIgfCBBX2kpIFxtYXRoYmJ7UH0oQV9pKX17XG1hdGhiYntQfShCKX0gPSBcZnJhY3tcbWF0aGJie1B9KEIgfCBBX2kpIFxtYXRoYmJ7UH0oQV9pKX17XHN1bV9qIFxtYXRoYmJ7UH0oQiB8IEFfaikgXG1hdGhiYntQfShBX2opfSQkDQoNCg0KIyMgMS42LiBFdmVudG9zIGluZGVwZW5kZW50ZXMNCg0KT3MgZXZlbnRvcyAkQSQgZSAkQiQgc8OjbyBpbmRlcGVuZGVudGVzIHNlIGUgc29tZW50ZSBzZSAkXG1hdGhiYntQfShBIHwgQikgPSBcbWF0aGJie1B9KEEpJC4NCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDMuIFZhcmnDoXZlaXMgQWxlYXTDs3JpYXMNCg0KIyMgMy4xLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzDQoNCiMjIDMuMi4gRnVuw6fDo28gZGUgZGlzdHJpYnVpw6fDo28NCg0KIyMgMy4zLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGRpc2NyZXRhcw0KDQojIyAzLjQuIFZhcmnDoXZlaXMgYWxlYXTDs3JpYXMgY29udMOtbnVhcw0KDQojIyAzLjUuIEZ1bsOnw7VlcyBkZSB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWENCg0KIyMgMy42LiBWYWxvciBlc3BlcmFkbw0KDQojIyAzLjcuIE1vbWVudG9zDQoNCiMjIDMuOC4gUGFyw6JtZXRyb3MgZGUgb3JkZW0NCg0KIyMgMy45LiBGdW7Dp8OjbyBnZXJhZG9yYSBkZSBtb21lbnRvcw0KDQo=</div>
 
 
 
@@ -2082,7 +1840,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("probabilidade.Rmd");
+  window.initializeSourceEmbed("variaveis_aleatorias.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

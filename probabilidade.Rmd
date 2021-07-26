@@ -112,17 +112,101 @@ $$
 
 
 
-### Simulando o lançamento de uma moeda
+### Simulando o lançamento de moedas
 
+
+Exemplo: O lançamento de uma moeda.
 ```{r}
 moeda <- c("cara", "coroa")
 
 sample(moeda, size = 1)
 ```
 
-### Simulando o lançamento de um dado.
+Exemplo: Lançamento de uma moeda 10 vezes:
+```{r}
+resultado <- sample(moeda, 10, replace = TRUE)
+resultado
+```
+Tabular o resultado e converter em um dataframe:
+```{r}
+df_moeda <- data.frame(table(resultado))
+df_moeda
+```
+Usando a função `prop.table()`, podemos adicionar uma coluna adicional para mostrar as probabilidades de "cara" e "coroa".
+
+```{r}
+df_moeda_prob <- cbind(df_moeda, prop.table(df_moeda$Freq))
+names(df_moeda_prob) <- c("Resultado","Frequência", "Probabilidade")
+df_moeda_prob
+```
+
+### Simulando o lançamento de dados.
+
+Exemplo: O lançamento de um dado.
 ```{r}
 dado <- c(1:6)
 
 sample(dado, size = 1)
 ```
+
+
+Exemplo: O lançamento de um dado 10 vezes.
+```{r}
+dado <- c(1:6)
+
+sample(dado, size = 1)
+```
+
+Tabulando frequências no lançamento de um dado 100 vezes.
+```{r}
+resultado2 <- sample(dado, 100, replace = TRUE)
+df_dado <- data.frame(table(resultado2))
+df_dado
+```
+Construindo uma tabela de frequências.
+```{r}
+df_dado_prob <- cbind(df_dado, prop.table(df_dado$Freq))
+names(df_dado_prob) <- c("Resultado","Frequência", "Probabilidade")
+df_dado_prob
+```
+
+## 1.3. Métodos de contagem
+
+
+## 1.4. Probabilidade condicional
+
+- Se $\mathbb{P}(B) > 0$ então a **probabilidade condicional** de $A$ dado $B$ é
+
+  $$ \mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} $$
+  
+- $\mathbb{P}(\cdot | B)$ satisfaz os aximos de probabilidade, para um $B$ fixo.
+
+- Em geral, $\mathbb{P}(A | \cdot)$ não satisfaz os axiomas de probabilidade para um $A$ fixo.
+
+- Em geral, $\mathbb{P}(B | A) \neq \mathbb{P}(A | B)$.
+
+
+## 1.5. Teorema de Bayes
+
+**Teorema (A Lei de Probabilidade Total)**. Seja $A_1, \dots, A_k$ uma partição de $\Omega$.  Então, para qualquer evento $B$,
+
+$$ \mathbb{P}(B) = \sum_{i=1}^k \mathbb{P}(B | A_i) \mathbb{P}(A_i) $$
+
+**Demonstração**.  Seja $C_j = BA_j$. Note que $C_j$'s são disjuntos e que $B = \cup_{i=1}^k C_j$. Portanto:
+
+$$ \mathbb{P}(B) = \sum_j \mathbb{P}(C_j)  = \sum_j \mathbb{P}(B \cap A_j) = \sum_j \mathbb{P}(B | A_j) \mathbb{P}(A_j) $$
+**Teorema (Regra de Bayes)**. Seja $A_1, \dots, A_k$ uma partição de $\Omega$ tal que $\mathbb{P}(A_i) > 0$ para cada $i$. Se $\mathbb{P}(B) > 0$, então, para cada $i = 1, \dots, k$,
+
+$$ \mathbb{P}(A_i | B) = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\sum_j \mathbb{P}(B | A_j) \mathbb{P}(A_j)} $$
+
+$\mathbb{P}(A_i)$ é denominada como **probabilidade a priori** de $A_i$ e $\mathbb{P}(A_i | B)$ como **probabilidade a posteriori** de $A_i$.
+
+**Demonstração**.  Aplicamos a definição de probabilidade condicional e a Lei de Probabilidade Total:
+
+$$ \mathbb{P}(A_i | B) = \frac{\mathbb{P}(A_i \cap B) }{\mathbb{P}(B)} = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\mathbb{P}(B)} = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\sum_j \mathbb{P}(B | A_j) \mathbb{P}(A_j)}$$
+
+
+## 1.6. Eventos independentes
+
+Os eventos $A$ e $B$ são independentes se e somente se $\mathbb{P}(A | B) = \mathbb{P}(A)$.
+

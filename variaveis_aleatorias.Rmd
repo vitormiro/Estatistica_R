@@ -1,0 +1,26 @@
+---
+title: "Estatística Aplicada"
+author: "Prof. Vitor Hugo Miro (DEA e PPGER/CCA/UFC)"
+output: html_notebook
+---
+
+# 3. Variáveis Aleatórias
+
+## 3.1. Variáveis aleatórias
+
+## 3.2. Função de distribuição
+
+## 3.3. Variáveis aleatórias discretas
+
+## 3.4. Variáveis aleatórias contínuas
+
+## 3.5. Funções de uma variável aleatória
+
+## 3.6. Valor esperado
+
+## 3.7. Momentos
+
+## 3.8. Parâmetros de ordem
+
+## 3.9. Função geradora de momentos
+
