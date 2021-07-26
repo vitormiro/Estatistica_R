@@ -1765,9 +1765,23 @@ summary {
 <h1>3. Variáveis Aleatórias</h1>
 <div id="variáveis-aleatórias-1" class="section level2">
 <h2>3.1. Variáveis aleatórias</h2>
+<p>Uma <strong>variável aleatória</strong> é uma função <span class="math inline">\(X : \Omega \rightarrow \mathbb{R}\)</span> que assinala um número real <span class="math inline">\(X(\omega)\)</span> para cada resultado <span class="math inline">\(\omega \in \Omega\)</span>.</p>
+<p>Dada uma variável aleatória <span class="math inline">\(X\)</span> e um sobconjunto <span class="math inline">\(A\)</span> da linha real, define-se <span class="math inline">\(X^{-1}(A) = \{ \omega \in \Omega : X(\omega) \in A \}\)</span> e seja</p>
+<p><span class="math display">\[
+\begin{align}
+\mathbb{P}(X \in A) = \mathbb{P}(X^{-1}(A)) &amp;= \mathbb{P}(\{ \omega \in \Omega; X(\omega) \in A \}) \\
+\mathbb{P}(X = x) = \mathbb{P}(X^{-1}(x)) &amp;= \mathbb{P}(\{ \omega \in \Omega; X(\omega) = x \} )
+\end{align}
+\]</span></p>
+<p><span class="math inline">\(X\)</span> denota uma variável aleatória e <span class="math inline">\(x\)</span> um possível valor de <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="função-de-distribuição" class="section level2">
 <h2>3.2. Função de distribuição</h2>
+<p>A <strong>Função de distribuição acumulada</strong> (FDA), ou simplesmente <strong>função de distribuição</strong>, <span class="math inline">\(F_X : \mathbb{R} \rightarrow [0, 1]\)</span> de uma variável aleatória <span class="math inline">\(X\)</span> é definida por:</p>
+<p><span class="math display">\[ F_X(x) = \mathbb{P}(X \leq x) \]</span></p>
+<p>O seguinte resultado mostra que a FDA determina completamente a distribuição de uma variável aleatória.</p>
+<p><strong>Teorema</strong>. Seja <span class="math inline">\(X\)</span>, temos a FDA <span class="math inline">\(F\)</span>; e seja <span class="math inline">\(Y\)</span>, temos a FDA <span class="math inline">\(G\)</span>. Se <span class="math inline">\(F(x) = G(x)\)</span> para todo <span class="math inline">\(x\)</span> então <span class="math inline">\(\mathbb{P}(X \in A) = \mathbb{P}(Y \in A)\)</span> para todo <span class="math inline">\(A\)</span>.</p>
+<p><em>Tecnicamente, temos que <span class="math inline">\(\mathbb{P}(X \in A) = \mathbb{P}(Y \in A)\)</span> para todo evento mensurável <span class="math inline">\(A\)</span>.</em></p>
 </div>
 <div id="variáveis-aleatórias-discretas" class="section level2">
 <h2>3.3. Variáveis aleatórias discretas</h2>
@@ -1793,7 +1807,7 @@ summary {
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDMuIFZhcmnDoXZlaXMgQWxlYXTDs3JpYXMNCg0KIyMgMy4xLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzDQoNCiMjIDMuMi4gRnVuw6fDo28gZGUgZGlzdHJpYnVpw6fDo28NCg0KIyMgMy4zLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGRpc2NyZXRhcw0KDQojIyAzLjQuIFZhcmnDoXZlaXMgYWxlYXTDs3JpYXMgY29udMOtbnVhcw0KDQojIyAzLjUuIEZ1bsOnw7VlcyBkZSB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWENCg0KIyMgMy42LiBWYWxvciBlc3BlcmFkbw0KDQojIyAzLjcuIE1vbWVudG9zDQoNCiMjIDMuOC4gUGFyw6JtZXRyb3MgZGUgb3JkZW0NCg0KIyMgMy45LiBGdW7Dp8OjbyBnZXJhZG9yYSBkZSBtb21lbnRvcw0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDMuIFZhcmnDoXZlaXMgQWxlYXTDs3JpYXMNCg0KIyMgMy4xLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzDQoNClVtYSAqKnZhcmnDoXZlbCBhbGVhdMOzcmlhKiogw6kgdW1hIGZ1bsOnw6NvICRYIDogXE9tZWdhIFxyaWdodGFycm93IFxtYXRoYmJ7Un0kIHF1ZSBhc3NpbmFsYSB1bSBuw7ptZXJvIHJlYWwgJFgoXG9tZWdhKSQgcGFyYSBjYWRhIHJlc3VsdGFkbyAkXG9tZWdhIFxpbiBcT21lZ2EkLg0KDQpEYWRhIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgZSB1bSBzb2Jjb25qdW50byAkQSQgZGEgbGluaGEgcmVhbCwgZGVmaW5lLXNlICRYXnstMX0oQSkgPSBceyBcb21lZ2EgXGluIFxPbWVnYSA6IFgoXG9tZWdhKSBcaW4gQSBcfSQgZSBzZWphDQoNCiQkDQpcYmVnaW57YWxpZ259DQpcbWF0aGJie1B9KFggXGluIEEpID0gXG1hdGhiYntQfShYXnstMX0oQSkpICY9IFxtYXRoYmJ7UH0oXHsgXG9tZWdhIFxpbiBcT21lZ2E7IFgoXG9tZWdhKSBcaW4gQSBcfSkgXFwNClxtYXRoYmJ7UH0oWCA9IHgpID0gXG1hdGhiYntQfShYXnstMX0oeCkpICY9IFxtYXRoYmJ7UH0oXHsgXG9tZWdhIFxpbiBcT21lZ2E7IFgoXG9tZWdhKSA9IHggXH0gKQ0KXGVuZHthbGlnbn0NCiQkDQoNCiRYJCBkZW5vdGEgdW1hIHZhcmnDoXZlbCBhbGVhdMOzcmlhIGUgJHgkIHVtIHBvc3PDrXZlbCB2YWxvciBkZSAkWCQuDQoNCiMjIDMuMi4gRnVuw6fDo28gZGUgZGlzdHJpYnVpw6fDo28NCg0KQSAqKkZ1bsOnw6NvIGRlIGRpc3RyaWJ1acOnw6NvIGFjdW11bGFkYSoqIChGREEpLCBvdSBzaW1wbGVzbWVudGUgKipmdW7Dp8OjbyBkZSBkaXN0cmlidWnDp8OjbyoqLCAkRl9YIDogXG1hdGhiYntSfSBccmlnaHRhcnJvdyBbMCwgMV0kIGRlIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgw6kgZGVmaW5pZGEgcG9yOg0KDQokJCBGX1goeCkgPSBcbWF0aGJie1B9KFggXGxlcSB4KSAkJA0KDQpPIHNlZ3VpbnRlIHJlc3VsdGFkbyBtb3N0cmEgcXVlIGEgRkRBIGRldGVybWluYSBjb21wbGV0YW1lbnRlIGEgZGlzdHJpYnVpw6fDo28gZGUgdW1hIHZhcmnDoXZlbCBhbGVhdMOzcmlhLg0KDQoqKlRlb3JlbWEqKi4gIFNlamEgJFgkLCB0ZW1vcyBhIEZEQSAkRiQ7IGUgc2VqYSAkWSQsIHRlbW9zIGEgRkRBICRHJC4gIFNlICRGKHgpID0gRyh4KSQgcGFyYSB0b2RvICR4JCBlbnTDo28gJFxtYXRoYmJ7UH0oWCBcaW4gQSkgPSBcbWF0aGJie1B9KFkgXGluIEEpJCBwYXJhIHRvZG8gJEEkLg0KDQoqVGVjbmljYW1lbnRlLCB0ZW1vcyBxdWUgJFxtYXRoYmJ7UH0oWCBcaW4gQSkgPSBcbWF0aGJie1B9KFkgXGluIEEpJCBwYXJhIHRvZG8gZXZlbnRvIG1lbnN1csOhdmVsICRBJC4qDQoNCg0KIyMgMy4zLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGRpc2NyZXRhcw0KDQojIyAzLjQuIFZhcmnDoXZlaXMgYWxlYXTDs3JpYXMgY29udMOtbnVhcw0KDQojIyAzLjUuIEZ1bsOnw7VlcyBkZSB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWENCg0KIyMgMy42LiBWYWxvciBlc3BlcmFkbw0KDQojIyAzLjcuIE1vbWVudG9zDQoNCiMjIDMuOC4gUGFyw6JtZXRyb3MgZGUgb3JkZW0NCg0KIyMgMy45LiBGdW7Dp8OjbyBnZXJhZG9yYSBkZSBtb21lbnRvcw0KDQo=</div>
 
 
 

@@ -8,7 +8,31 @@ output: html_notebook
 
 ## 3.1. Variáveis aleatórias
 
+Uma **variável aleatória** é uma função $X : \Omega \rightarrow \mathbb{R}$ que assinala um número real $X(\omega)$ para cada resultado $\omega \in \Omega$.
+
+Dada uma variável aleatória $X$ e um sobconjunto $A$ da linha real, define-se $X^{-1}(A) = \{ \omega \in \Omega : X(\omega) \in A \}$ e seja
+
+$$
+\begin{align}
+\mathbb{P}(X \in A) = \mathbb{P}(X^{-1}(A)) &= \mathbb{P}(\{ \omega \in \Omega; X(\omega) \in A \}) \\
+\mathbb{P}(X = x) = \mathbb{P}(X^{-1}(x)) &= \mathbb{P}(\{ \omega \in \Omega; X(\omega) = x \} )
+\end{align}
+$$
+
+$X$ denota uma variável aleatória e $x$ um possível valor de $X$.
+
 ## 3.2. Função de distribuição
+
+A **Função de distribuição acumulada** (FDA), ou simplesmente **função de distribuição**, $F_X : \mathbb{R} \rightarrow [0, 1]$ de uma variável aleatória $X$ é definida por:
+
+$$ F_X(x) = \mathbb{P}(X \leq x) $$
+
+O seguinte resultado mostra que a FDA determina completamente a distribuição de uma variável aleatória.
+
+**Teorema**.  Seja $X$, temos a FDA $F$; e seja $Y$, temos a FDA $G$.  Se $F(x) = G(x)$ para todo $x$ então $\mathbb{P}(X \in A) = \mathbb{P}(Y \in A)$ para todo $A$.
+
+*Tecnicamente, temos que $\mathbb{P}(X \in A) = \mathbb{P}(Y \in A)$ para todo evento mensurável $A$.*
+
 
 ## 3.3. Variáveis aleatórias discretas
 
