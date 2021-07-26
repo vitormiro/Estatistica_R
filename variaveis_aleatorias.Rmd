@@ -14,8 +14,8 @@ Dada uma variável aleatória $X$ e um sobconjunto $A$ da linha real, define-se 
 
 $$
 \begin{align}
-\mathbb{P}(X \in A) = \mathbb{P}(X^{-1}(A)) &= \mathbb{P}(\{ \omega \in \Omega; X(\omega) \in A \}) \\
-\mathbb{P}(X = x) = \mathbb{P}(X^{-1}(x)) &= \mathbb{P}(\{ \omega \in \Omega; X(\omega) = x \} )
+P(X \in A) = P(X^{-1}(A)) &= P(\{ \omega \in \Omega; X(\omega) \in A \}) \\
+P(X = x) = P(X^{-1}(x)) &= P(\{ \omega \in \Omega; X(\omega) = x \} )
 \end{align}
 $$
 
@@ -25,18 +25,38 @@ $X$ denota uma variável aleatória e $x$ um possível valor de $X$.
 
 A **Função de distribuição acumulada** (FDA), ou simplesmente **função de distribuição**, $F_X : \mathbb{R} \rightarrow [0, 1]$ de uma variável aleatória $X$ é definida por:
 
-$$ F_X(x) = \mathbb{P}(X \leq x) $$
+$$ F_X(x) = P(X \leq x) $$
 
 O seguinte resultado mostra que a FDA determina completamente a distribuição de uma variável aleatória.
 
-**Teorema**.  Seja $X$, temos a FDA $F$; e seja $Y$, temos a FDA $G$.  Se $F(x) = G(x)$ para todo $x$ então $\mathbb{P}(X \in A) = \mathbb{P}(Y \in A)$ para todo $A$.
+**Teorema**.  Seja $X$, temos a FDA $F$; e seja $Y$, temos a FDA $G$.  Se $F(x) = G(x)$ para todo $x$ então $P(X \in A) = P(Y \in A)$ para todo $A$.
 
-*Tecnicamente, temos que $\mathbb{P}(X \in A) = \mathbb{P}(Y \in A)$ para todo evento mensurável $A$.*
+*Tecnicamente, temos que $P(X \in A) = P(Y \in A)$ para todo evento mensurável $A$.*
 
 
 ## 3.3. Variáveis aleatórias discretas
 
+**Definição**
+Seja $X$ uma variável aleatória. Se o número possível de valores de $X$ for finito ou infinito enumerável, isto é, $R_x = \{x_1, \cdots, x_n\}$ ou$ Rx = \{x_1, ..., x_n, ...\}$, então $X$  é dita ser uma variável aleatória discreta. Denotando $i = 1, 2, \cdots$ essas probabilidades devem satisfazer as seguintes condições: 
+
+
+- $$ p(x_i) \geq 0 $$
+- $$ \sum_{i} P(x_i) =1 $$
+
+A função $p: \mathbb{R}_x \rightarrow [0, 1]$ que associa todo resultado elementar $xi$ à sua probabilidade $p(x_i)$ é chamada de *função de probabilidade da variável aleatória $X$.
+
+O conjunto de pares $(x_i, p(x_i))$ é denominado *distribuição de pobabilidade* de $X$.  
+
 ## 3.4. Variáveis aleatórias contínuas
+
+**Definição**
+Seja $X$ uma variável aleatória que assume valores em um intervalo real ou uma coleção de intervalos reais, para a qual existe uma *função densidade de probabilidade* (FDP) que satisfaz as seguintes condições:
+
+- $$ f(x) \geq 0 $$
+- $$ \int_{- \infty}^{\infty}  f(x) = 1 $$
+
+Para dois números reais $a$ e $b$, tais que $ a \leq b$, a probabilidade de que a variável aleatória assuma valores no intervalo $[a, b]$ é dada por: 
+$$ \mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x) dx $$
 
 ## 3.5. Funções de uma variável aleatória
 
