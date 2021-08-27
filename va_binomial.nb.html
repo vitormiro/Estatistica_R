@@ -1761,67 +1761,142 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<div id="variáveis-aleatórias" class="section level1">
-<h1>3. Variáveis Aleatórias</h1>
-<div id="variáveis-aleatórias-1" class="section level2">
-<h2>3.1. Variáveis aleatórias</h2>
-<p>Uma <strong>variável aleatória</strong> é uma função <span class="math inline">\(X : \Omega \rightarrow \mathbb{R}\)</span> que assinala um número real <span class="math inline">\(X(\omega)\)</span> para cada resultado <span class="math inline">\(\omega \in \Omega\)</span>.</p>
-<p>Dada uma variável aleatória <span class="math inline">\(X\)</span> e um sobconjunto <span class="math inline">\(A\)</span> da linha real, define-se <span class="math inline">\(X^{-1}(A) = \{ \omega \in \Omega : X(\omega) \in A \}\)</span> e seja</p>
+<div id="distribuição-binomial" class="section level1">
+<h1>Distribuição Binomial</h1>
+<div id="bernoulli" class="section level2">
+<h2>Bernoulli</h2>
+<p>A variável aleatória de Bernoulli <span class="math inline">\(X\)</span> assume o valor 1 com probabilidade <span class="math inline">\(p\)</span> (também conhecida como probabilidade de sucesso) e o valor 0 com probabilidade <span class="math inline">\(1-p\)</span> (probabilidade de falha), onde <span class="math inline">\(0 &lt; p &lt; 1\)</span>. É, portanto, uma variável aleatória discreta com o intervalo <span class="math inline">\({0, 1}\)</span>. A FMP de uma variável aleatória de Bernoulli é definida da seguinte maneira:</p>
 <p><span class="math display">\[
-\begin{align}
-P(X \in A) = P(X^{-1}(A)) &amp;= P(\{ \omega \in \Omega; X(\omega) \in A \}) \\
-P(X = x) = P(X^{-1}(x)) &amp;= P(\{ \omega \in \Omega; X(\omega) = x \} )
-\end{align}
-\]</span></p>
-<p><span class="math inline">\(X\)</span> denota uma variável aleatória e <span class="math inline">\(x\)</span> um possível valor de <span class="math inline">\(X\)</span>.</p>
+p_X (x)=\left\{ \begin{array}{ll}
+p &amp; \mathrm{se} \ X=1,\\
+1-p &amp; \mathrm{se} \ X=0, \\
+0 &amp; \mathrm{se} \ X\neq 0, 1
+\end{array}\right.
+\]</span> Um ensaio de Bernoulli, que corresponde à amostragem da distribuição de Bernoulli, é um experimento aleatório com exatamente dois resultados possíveis, em que a probabilidade de cada um dos dois resultados permanece a mesma toda vez que o experimento é conduzido. Em estudos independentes, o resultado de um estudo não tem influência sobre o resultado de outro estudo. O ensaio de Bernoulli é um bloco de construção básico para algumas distribuições discretas bem conhecidas, como as distribuições binomial, geométrica e Pascal.</p>
+<p>A média <span class="math inline">\(\mu_x\)</span> e a variância <span class="math inline">\(\sigma^2_X\)</span> da variável aleatória de Bernoulli são, respectivamente:</p>
+<p><span class="math display">\[ \mu_X = p \]</span> <span class="math display">\[ \sigma^2_X = 1-p \]</span></p>
+<p>No <code>R</code> podemos usar a função <code>rbinom</code> para simular um experimento de Bernoulli. A função é dada por <code>rbinom(n, size, prob)</code>, em que <code>n</code> é número de observações, <code>size</code> é o número de tentativas e <code>prob</code> é a probabilidade de sucesso no experimento <span class="math inline">\(p\)</span>.</p>
+<p><strong>EXEMPLO</strong>: Lançamento de uma moeda.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmJpbm9tKDEsIDEsIDAuNSlcbmBgYCJ9 -->
+<pre class="r"><code>rbinom(1, 1, 0.5)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
-<div id="função-de-distribuição" class="section level2">
-<h2>3.2. Função de distribuição</h2>
-<p>A <strong>Função de distribuição acumulada</strong> (FDA), ou simplesmente <strong>função de distribuição</strong>, <span class="math inline">\(F_X : \mathbb{R} \rightarrow [0, 1]\)</span> de uma variável aleatória <span class="math inline">\(X\)</span> é definida por:</p>
-<p><span class="math display">\[ F_X(x) = P(X \leq x) \]</span></p>
-<p>O seguinte resultado mostra que a FDA determina completamente a distribuição de uma variável aleatória.</p>
-<p><strong>Teorema</strong>. Seja <span class="math inline">\(X\)</span>, temos a FDA <span class="math inline">\(F\)</span>; e seja <span class="math inline">\(Y\)</span>, temos a FDA <span class="math inline">\(G\)</span>. Se <span class="math inline">\(F(x) = G(x)\)</span> para todo <span class="math inline">\(x\)</span> então <span class="math inline">\(P(X \in A) = P(Y \in A)\)</span> para todo <span class="math inline">\(A\)</span>.</p>
-<p><em>Tecnicamente, temos que <span class="math inline">\(P(X \in A) = P(Y \in A)\)</span> para todo evento mensurável <span class="math inline">\(A\)</span>.</em></p>
-</div>
-<div id="variáveis-aleatórias-discretas" class="section level2">
-<h2>3.3. Variáveis aleatórias discretas</h2>
-<p><strong>Definição</strong> Seja <span class="math inline">\(X\)</span> uma variável aleatória. Se o número possível de valores de <span class="math inline">\(X\)</span> for finito ou infinito enumerável, isto é, <span class="math inline">\(R_x = \{x_1, \cdots, x_n\}\)</span> ou$ Rx = {x_1, …, x_n, …}$, então <span class="math inline">\(X\)</span> é dita ser uma variável aleatória discreta. Denotando <span class="math inline">\(i = 1, 2, \cdots\)</span> essas probabilidades devem satisfazer as seguintes condições:</p>
-<ul>
-<li><span class="math display">\[ p(x_i) \geq 0 \]</span></li>
-<li><span class="math display">\[ \sum_{i} P(x_i) =1 \]</span></li>
-</ul>
-<p>A função <span class="math inline">\(p: \mathbb{R}_x \rightarrow [0, 1]\)</span> que associa todo resultado elementar <span class="math inline">\(xi\)</span> à sua probabilidade <span class="math inline">\(p(x_i)\)</span> é chamada de *função de probabilidade da variável aleatória <span class="math inline">\(X\)</span>.</p>
-<p>O conjunto de pares <span class="math inline">\((x_i, p(x_i))\)</span> é denominado <em>distribuição de probabilidade</em> de <span class="math inline">\(X\)</span>.</p>
-</div>
-<div id="variáveis-aleatórias-contínuas" class="section level2">
-<h2>3.4. Variáveis aleatórias contínuas</h2>
-<p><strong>Definição</strong> Seja <span class="math inline">\(X\)</span> uma variável aleatória que assume valores em um intervalo real ou uma coleção de intervalos reais, para a qual existe uma <em>função densidade de probabilidade</em> (FDP) que satisfaz as seguintes condições:</p>
-<ul>
-<li><span class="math display">\[ f(x) \geq 0 \]</span></li>
-<li><span class="math display">\[ \int_{- \infty}^{\infty}  f(x) = 1 \]</span></li>
-</ul>
-<p>Para dois números reais <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span>, tais que $ a b$, a probabilidade de que a variável aleatória assuma valores no intervalo <span class="math inline">\([a, b]\)</span> é dada por:</p>
-<p><span class="math display">\[ \mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x) dx \]</span></p>
-</div>
-<div id="funções-de-uma-variável-aleatória" class="section level2">
-<h2>3.5. Funções de uma variável aleatória</h2>
-</div>
-<div id="valor-esperado" class="section level2">
-<h2>3.6. Valor esperado</h2>
-</div>
-<div id="momentos" class="section level2">
-<h2>3.7. Momentos</h2>
-</div>
-<div id="parâmetros-de-ordem" class="section level2">
-<h2>3.8. Parâmetros de ordem</h2>
-</div>
-<div id="função-geradora-de-momentos" class="section level2">
-<h2>3.9. Função geradora de momentos</h2>
+<div id="binomial" class="section level2">
+<h2>Binomial</h2>
+<p>A variável aleatória binomial <span class="math inline">\(X\)</span> é o número de vezes que 1 (ou seja, sucessos) ocorre em <span class="math inline">\(n\)</span> ensaios de Bernoulli independentes, onde <span class="math inline">\(n\)</span> é um número inteiro positivo, e cada ocorrência de 1 é assumida como tendo probabilidade <span class="math inline">\(p\)</span>, com <span class="math inline">\(0 &lt; p &lt; 1\)</span>. Ou seja, a soma de <span class="math inline">\(n\)</span> tentativas de Bernoulli independentes é uma variável aleatória binomial. A notação <span class="math inline">\(X \sim B (n, p)\)</span> denota que a variável aleatória <span class="math inline">\(X\)</span> tem a distribuição binomial com os parâmetros <span class="math inline">\(n\)</span> e <span class="math inline">\(p\)</span>.</p>
+<p>A PMF de uma variável aleatória binomial é:</p>
+<p><span class="math display">\[
+p_X (x)=\left\{ \begin{array}{ll}
+\left(\begin{array}{c}n\\x\end{array}\right) p^x(1-p)^{n-x} &amp; \mathrm{se} \ x=0, 1, \cdots, n,\\
+0 &amp; \mathrm{se} \ \text{caso contrário}
+\end{array}\right.
+\]</span> onde <span class="math inline">\(\left(\begin{array}{c}n\\x\end{array}\right)=\frac{n!}{x!(n-x)!}\)</span> é o coeficiente binomial:</p>
+<p>A distribuição binomial é freqüentemente usada para modelar o número de sucessos quando a amostragem é realizada com reposição, pois os sorteios são independentes. Se a amostragem for realizada sem reposição de uma população finita, os sorteios não são independentes e a distribuição hipergeométrica, conforme discutido posteriormente neste capítulo, deve ser empregada. Observe que quando <span class="math inline">\(n = 1\)</span>, a variável aleatória binomial é apenas a variável aleatória de Bernoulli, e quando <span class="math inline">\(p = 0,5\)</span>, a distribuição binomial é simétrica para qualquer valor do parâmetro <span class="math inline">\(n\)</span>. A média <span class="math inline">\(\mu_X\)</span> e a variância <span class="math inline">\(\sigma^2_X\)</span> da variável aleatória binomial <span class="math inline">\(X\)</span>, que pode ser definida de forma independente pela seleção apropriada de <span class="math inline">\(p\)</span> e <span class="math inline">\(n\)</span>, são, respectivamente:</p>
+<p><span class="math display">\[ \mu_X = np \]</span> <span class="math display">\[ \sigma^2_X = np(1-p) \]</span></p>
+<p>R function dbinom(x, size, prob) is the probability of x successes in size trials when the probability of success is prob.</p>
+<p>No <code>R</code> podemos usar a função <code>rbinom</code> para simular a realização de um processo binomial.</p>
+<p><strong>EXEMPLO</strong>: Vamos simular o lançamento de 10 moedas “justas” (<span class="math inline">\(p=0,5\)</span>) e contar o número de caras (<span class="math inline">\(x=1\)</span>).</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtKGIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>sum(b)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDdcbiJ9 -->
+<pre><code>[1] 7</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Já a função <code>dbinom (x, size, prob)</code> retorna a probabilidade de <span class="math inline">\(x\)</span> sucessos em <code>size</code> tentativas quando a probabilidade de sucesso é <code>prob</code>.</p>
+<p><strong>EXEMPLO</strong>: Se <span class="math inline">\(X \sim B(10; 0,3)\)</span>. a. Calcule <span class="math inline">\(P(X=5)\)</span>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJpbm9tKHggPSA1LCBzaXplID0gMTAsIHByb2IgPSAwLjMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>dbinom(x = 5, size = 10, prob = 0.3)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTAyOTE5M1xuIn0= -->
+<pre><code>[1] 0.1029193</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Calcule <span class="math inline">\(P(3 \leq X \leq 5)\)</span>.</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJpbm9tKDMsIDEwLCAuMykgKyBkYmlub20oNCwgMTAsIC4zKSArIGRiaW5vbSg1LCAxMCwgLjMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>dbinom(3, 10, .3) + dbinom(4, 10, .3) + dbinom(5, 10, .3)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTY5ODY4MlxuIn0= -->
+<pre><code>[1] 0.5698682</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Alternativamente:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJpbm9tKDM6NSwgMTAsIC4zKVxuXG5gYGAifQ== -->
+<pre class="r"><code>dbinom(3:5, 10, .3)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMjY2ODI3OSAwLjIwMDEyMDkgMC4xMDI5MTkzXG4ifQ== -->
+<pre><code>[1] 0.2668279 0.2001209 0.1029193</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtKGRiaW5vbSgzOjUsIDEwICwgLjMpKVxuXG5gYGAifQ== -->
+<pre class="r"><code>sum(dbinom(3:5, 10 , .3))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTY5ODY4MlxuIn0= -->
+<pre><code>[1] 0.5698682</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>EXEMPLO</strong>: Se <span class="math inline">\(X \sim B(6; 0,5)\)</span>.</p>
+<p>Vamos simular:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmJpbm9tKG4gPSAwOjYsIHNpemUgPSAxLCBwcm9iID0gMC41KVxuXG5gYGAifQ== -->
+<pre class="r"><code>rbinom(n = 0:6, size = 1, prob = 0.5)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAgMCAxIDEgMSAwIDBcbiJ9 -->
+<pre><code>[1] 0 0 1 1 1 0 0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Obtendo uma distribuição de probabilidades de <span class="math inline">\(X\)</span></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvYnNcblxuYGBgIn0= -->
+<pre class="r"><code>probs
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMDE1NjI1IDAuMDkzNzUwIDAuMjM0Mzc1IDAuMzEyNTAwIDAuMjM0Mzc1IDAuMDkzNzUwIDAuMDE1NjI1XG4ifQ== -->
+<pre><code>[1] 0.015625 0.093750 0.234375 0.312500 0.234375 0.093750 0.015625</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Vamos plotar essa distribuição.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjM2NS44ODM4LCJ3aWR0aCI6NTkyLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDMuIFZhcmnDoXZlaXMgQWxlYXTDs3JpYXMNCg0KIyMgMy4xLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzDQoNClVtYSAqKnZhcmnDoXZlbCBhbGVhdMOzcmlhKiogw6kgdW1hIGZ1bsOnw6NvICRYIDogXE9tZWdhIFxyaWdodGFycm93IFxtYXRoYmJ7Un0kIHF1ZSBhc3NpbmFsYSB1bSBuw7ptZXJvIHJlYWwgJFgoXG9tZWdhKSQgcGFyYSBjYWRhIHJlc3VsdGFkbyAkXG9tZWdhIFxpbiBcT21lZ2EkLg0KDQpEYWRhIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgZSB1bSBzb2Jjb25qdW50byAkQSQgZGEgbGluaGEgcmVhbCwgZGVmaW5lLXNlICRYXnstMX0oQSkgPSBceyBcb21lZ2EgXGluIFxPbWVnYSA6IFgoXG9tZWdhKSBcaW4gQSBcfSQgZSBzZWphDQoNCiQkDQpcYmVnaW57YWxpZ259DQpQKFggXGluIEEpID0gUChYXnstMX0oQSkpICY9IFAoXHsgXG9tZWdhIFxpbiBcT21lZ2E7IFgoXG9tZWdhKSBcaW4gQSBcfSkgXFwNClAoWCA9IHgpID0gUChYXnstMX0oeCkpICY9IFAoXHsgXG9tZWdhIFxpbiBcT21lZ2E7IFgoXG9tZWdhKSA9IHggXH0gKQ0KXGVuZHthbGlnbn0NCiQkDQoNCiRYJCBkZW5vdGEgdW1hIHZhcmnDoXZlbCBhbGVhdMOzcmlhIGUgJHgkIHVtIHBvc3PDrXZlbCB2YWxvciBkZSAkWCQuDQoNCiMjIDMuMi4gRnVuw6fDo28gZGUgZGlzdHJpYnVpw6fDo28NCg0KQSAqKkZ1bsOnw6NvIGRlIGRpc3RyaWJ1acOnw6NvIGFjdW11bGFkYSoqIChGREEpLCBvdSBzaW1wbGVzbWVudGUgKipmdW7Dp8OjbyBkZSBkaXN0cmlidWnDp8OjbyoqLCAkRl9YIDogXG1hdGhiYntSfSBccmlnaHRhcnJvdyBbMCwgMV0kIGRlIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgw6kgZGVmaW5pZGEgcG9yOg0KDQokJCBGX1goeCkgPSBQKFggXGxlcSB4KSAkJA0KDQpPIHNlZ3VpbnRlIHJlc3VsdGFkbyBtb3N0cmEgcXVlIGEgRkRBIGRldGVybWluYSBjb21wbGV0YW1lbnRlIGEgZGlzdHJpYnVpw6fDo28gZGUgdW1hIHZhcmnDoXZlbCBhbGVhdMOzcmlhLg0KDQoqKlRlb3JlbWEqKi4gIFNlamEgJFgkLCB0ZW1vcyBhIEZEQSAkRiQ7IGUgc2VqYSAkWSQsIHRlbW9zIGEgRkRBICRHJC4gIFNlICRGKHgpID0gRyh4KSQgcGFyYSB0b2RvICR4JCBlbnTDo28gJFAoWCBcaW4gQSkgPSBQKFkgXGluIEEpJCBwYXJhIHRvZG8gJEEkLg0KDQoqVGVjbmljYW1lbnRlLCB0ZW1vcyBxdWUgJFAoWCBcaW4gQSkgPSBQKFkgXGluIEEpJCBwYXJhIHRvZG8gZXZlbnRvIG1lbnN1csOhdmVsICRBJC4qDQoNCg0KIyMgMy4zLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGRpc2NyZXRhcw0KDQoqKkRlZmluacOnw6NvKioNClNlamEgJFgkIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYS4gU2UgbyBuw7ptZXJvIHBvc3PDrXZlbCBkZSB2YWxvcmVzIGRlICRYJCBmb3IgZmluaXRvIG91IGluZmluaXRvIGVudW1lcsOhdmVsLCBpc3RvIMOpLCAkUl94ID0gXHt4XzEsIFxjZG90cywgeF9uXH0kIG91JCBSeCA9IFx7eF8xLCAuLi4sIHhfbiwgLi4uXH0kLCBlbnTDo28gJFgkICDDqSBkaXRhIHNlciB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgZGlzY3JldGEuIERlbm90YW5kbyAkaSA9IDEsIDIsIFxjZG90cyQgZXNzYXMgcHJvYmFiaWxpZGFkZXMgZGV2ZW0gc2F0aXNmYXplciBhcyBzZWd1aW50ZXMgY29uZGnDp8O1ZXM6IA0KDQoNCi0gJCQgcCh4X2kpIFxnZXEgMCAkJA0KLSAkJCBcc3VtX3tpfSBQKHhfaSkgPTEgJCQNCg0KQSBmdW7Dp8OjbyAkcDogXG1hdGhiYntSfV94IFxyaWdodGFycm93IFswLCAxXSQgcXVlIGFzc29jaWEgdG9kbyByZXN1bHRhZG8gZWxlbWVudGFyICR4aSQgw6Agc3VhIHByb2JhYmlsaWRhZGUgJHAoeF9pKSQgw6kgY2hhbWFkYSBkZSAqZnVuw6fDo28gZGUgcHJvYmFiaWxpZGFkZSBkYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQuDQoNCk8gY29uanVudG8gZGUgcGFyZXMgJCh4X2ksIHAoeF9pKSkkIMOpIGRlbm9taW5hZG8gKmRpc3RyaWJ1acOnw6NvIGRlIHByb2JhYmlsaWRhZGUqIGRlICRYJC4NCg0KDQoNCg0KIyMgMy40LiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGNvbnTDrW51YXMNCg0KKipEZWZpbmnDp8OjbyoqDQpTZWphICRYJCB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgcXVlIGFzc3VtZSB2YWxvcmVzIGVtIHVtIGludGVydmFsbyByZWFsIG91IHVtYSBjb2xlw6fDo28gZGUgaW50ZXJ2YWxvcyByZWFpcywgcGFyYSBhIHF1YWwgZXhpc3RlIHVtYSAqZnVuw6fDo28gZGVuc2lkYWRlIGRlIHByb2JhYmlsaWRhZGUqIChGRFApIHF1ZSBzYXRpc2ZheiBhcyBzZWd1aW50ZXMgY29uZGnDp8O1ZXM6DQoNCi0gJCQgZih4KSBcZ2VxIDAgJCQNCi0gJCQgXGludF97LSBcaW5mdHl9XntcaW5mdHl9ICBmKHgpID0gMSAkJA0KDQpQYXJhIGRvaXMgbsO6bWVyb3MgcmVhaXMgJGEkIGUgJGIkLCB0YWlzIHF1ZSAkIGEgXGxlcSBiJCwgYSBwcm9iYWJpbGlkYWRlIGRlIHF1ZSBhIHZhcmnDoXZlbCBhbGVhdMOzcmlhIGFzc3VtYSB2YWxvcmVzIG5vIGludGVydmFsbyAkW2EsIGJdJCDDqSBkYWRhIHBvcjoNCg0KJCQgXG1hdGhiYntQfShhIFxsZXEgWCBcbGVxIGIpID0gXGludF9hXmIgZl9YKHgpIGR4ICQkDQoNCiMjIDMuNS4gRnVuw6fDtWVzIGRlIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYQ0KDQojIyAzLjYuIFZhbG9yIGVzcGVyYWRvDQoNCiMjIDMuNy4gTW9tZW50b3MNCg0KIyMgMy44LiBQYXLDom1ldHJvcyBkZSBvcmRlbQ0KDQojIyAzLjkuIEZ1bsOnw6NvIGdlcmFkb3JhIGRlIG1vbWVudG9zDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIERpc3RyaWJ1acOnw6NvIEJpbm9taWFsDQoNCg0KIyMgQmVybm91bGxpDQoNCkEgdmFyacOhdmVsIGFsZWF0w7NyaWEgZGUgQmVybm91bGxpICRYJCBhc3N1bWUgbyB2YWxvciAxIGNvbSBwcm9iYWJpbGlkYWRlICRwJCAodGFtYsOpbSBjb25oZWNpZGEgY29tbyBwcm9iYWJpbGlkYWRlIGRlIHN1Y2Vzc28pIGUgbyB2YWxvciAwIGNvbSBwcm9iYWJpbGlkYWRlICQxLXAkIChwcm9iYWJpbGlkYWRlIGRlIGZhbGhhKSwgb25kZSAkMCA8IHAgPCAxJC4gw4ksIHBvcnRhbnRvLCB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgZGlzY3JldGEgY29tIG8gaW50ZXJ2YWxvICR7MCwgMX0kLiBBIEZNUCBkZSB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgZGUgQmVybm91bGxpIMOpIGRlZmluaWRhIGRhIHNlZ3VpbnRlIG1hbmVpcmE6DQoNCiQkDQpwX1ggKHgpPVxsZWZ0XHsgXGJlZ2lue2FycmF5fXtsbH0NCnAgJiBcbWF0aHJte3NlfSBcIFg9MSxcXA0KMS1wICYgXG1hdGhybXtzZX0gXCBYPTAsIFxcDQowICYgXG1hdGhybXtzZX0gXCBYXG5lcSAwLCAxDQpcZW5ke2FycmF5fVxyaWdodC4NCiQkDQpVbSBlbnNhaW8gZGUgQmVybm91bGxpLCBxdWUgY29ycmVzcG9uZGUgw6AgYW1vc3RyYWdlbSBkYSBkaXN0cmlidWnDp8OjbyBkZSBCZXJub3VsbGksIMOpIHVtIGV4cGVyaW1lbnRvIGFsZWF0w7NyaW8gY29tIGV4YXRhbWVudGUgZG9pcyByZXN1bHRhZG9zIHBvc3PDrXZlaXMsIGVtIHF1ZSBhIHByb2JhYmlsaWRhZGUgZGUgY2FkYSB1bSBkb3MgZG9pcyByZXN1bHRhZG9zIHBlcm1hbmVjZSBhIG1lc21hIHRvZGEgdmV6IHF1ZSBvIGV4cGVyaW1lbnRvIMOpIGNvbmR1emlkby4gRW0gZXN0dWRvcyBpbmRlcGVuZGVudGVzLCBvIHJlc3VsdGFkbyBkZSB1bSBlc3R1ZG8gbsOjbyB0ZW0gaW5mbHXDqm5jaWEgc29icmUgbyByZXN1bHRhZG8gZGUgb3V0cm8gZXN0dWRvLiBPIGVuc2FpbyBkZSBCZXJub3VsbGkgw6kgdW0gYmxvY28gZGUgY29uc3RydcOnw6NvIGLDoXNpY28gcGFyYSBhbGd1bWFzIGRpc3RyaWJ1acOnw7VlcyBkaXNjcmV0YXMgYmVtIGNvbmhlY2lkYXMsIGNvbW8gYXMgZGlzdHJpYnVpw6fDtWVzIGJpbm9taWFsLCBnZW9tw6l0cmljYSBlIFBhc2NhbC4NCg0KQSBtw6lkaWEgJFxtdV94JCBlIGEgdmFyacOibmNpYSAkXHNpZ21hXjJfWCQgZGEgdmFyacOhdmVsIGFsZWF0w7NyaWEgZGUgQmVybm91bGxpIHPDo28sIHJlc3BlY3RpdmFtZW50ZToNCg0KJCQgXG11X1ggPSBwICQkDQokJCBcc2lnbWFeMl9YID0gMS1wICQkDQoNCk5vIGBSYCBwb2RlbW9zIHVzYXIgYSBmdW7Dp8OjbyBgcmJpbm9tYCBwYXJhIHNpbXVsYXIgdW0gZXhwZXJpbWVudG8gZGUgQmVybm91bGxpLg0KQSBmdW7Dp8OjbyDDqSBkYWRhIHBvciBgcmJpbm9tKG4sIHNpemUsIHByb2IpYCwgZW0gcXVlIGBuYCDDqSBuw7ptZXJvIGRlIG9ic2VydmHDp8O1ZXMsIGBzaXplYCDDqSBvIG7Dum1lcm8gZGUgdGVudGF0aXZhcyBlIGBwcm9iYCDDqSBhIHByb2JhYmlsaWRhZGUgZGUgc3VjZXNzbyBubyBleHBlcmltZW50byAkcCQuDQoNCioqRVhFTVBMTyoqOiBMYW7Dp2FtZW50byBkZSB1bWEgbW9lZGEuDQoNCmBgYHtyfQ0KcmJpbm9tKDEsIDEsIDAuNSkNCmBgYA0KDQoNCiMjIEJpbm9taWFsDQoNCkEgdmFyacOhdmVsIGFsZWF0w7NyaWEgYmlub21pYWwgJFgkIMOpIG8gbsO6bWVybyBkZSB2ZXplcyBxdWUgMSAob3Ugc2VqYSwgc3VjZXNzb3MpIG9jb3JyZSBlbSAkbiQgZW5zYWlvcyBkZSBCZXJub3VsbGkgaW5kZXBlbmRlbnRlcywgb25kZSAkbiQgw6kgdW0gbsO6bWVybyBpbnRlaXJvIHBvc2l0aXZvLCBlIGNhZGEgb2NvcnLDqm5jaWEgZGUgMSDDqSBhc3N1bWlkYSBjb21vIHRlbmRvIHByb2JhYmlsaWRhZGUgJHAkLCBjb20gJDAgPCBwIDwgMSQuIE91IHNlamEsIGEgc29tYSBkZSAkbiQgdGVudGF0aXZhcyBkZSBCZXJub3VsbGkgaW5kZXBlbmRlbnRlcyDDqSB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgYmlub21pYWwuIEEgbm90YcOnw6NvICRYIFxzaW0gQiAobiwgcCkkIGRlbm90YSBxdWUgYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgdGVtIGEgZGlzdHJpYnVpw6fDo28gYmlub21pYWwgY29tIG9zIHBhcsOibWV0cm9zICRuJCBlICRwJC4gDQoNCkEgUE1GIGRlIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSBiaW5vbWlhbCDDqToNCg0KJCQNCnBfWCAoeCk9XGxlZnRceyBcYmVnaW57YXJyYXl9e2xsfQ0KXGxlZnQoXGJlZ2lue2FycmF5fXtjfW5cXHhcZW5ke2FycmF5fVxyaWdodCkgcF54KDEtcClee24teH0gJiBcbWF0aHJte3NlfSBcIHg9MCwgMSwgXGNkb3RzLCBuLFxcDQowICYgXG1hdGhybXtzZX0gXCBcdGV4dHtjYXNvIGNvbnRyw6FyaW99DQpcZW5ke2FycmF5fVxyaWdodC4NCiQkDQpvbmRlICRcbGVmdChcYmVnaW57YXJyYXl9e2N9blxceFxlbmR7YXJyYXl9XHJpZ2h0KT1cZnJhY3tuIX17eCEobi14KSF9JCDDqSBvIGNvZWZpY2llbnRlIGJpbm9taWFsOg0KDQpBIGRpc3RyaWJ1acOnw6NvIGJpbm9taWFsIMOpIGZyZXHDvGVudGVtZW50ZSB1c2FkYSBwYXJhIG1vZGVsYXIgbyBuw7ptZXJvIGRlIHN1Y2Vzc29zIHF1YW5kbyBhIGFtb3N0cmFnZW0gw6kgcmVhbGl6YWRhIGNvbSByZXBvc2nDp8OjbywgcG9pcyBvcyBzb3J0ZWlvcyBzw6NvIGluZGVwZW5kZW50ZXMuIFNlIGEgYW1vc3RyYWdlbSBmb3IgcmVhbGl6YWRhIHNlbSByZXBvc2nDp8OjbyBkZSB1bWEgcG9wdWxhw6fDo28gZmluaXRhLCBvcyBzb3J0ZWlvcyBuw6NvIHPDo28gaW5kZXBlbmRlbnRlcyBlIGEgZGlzdHJpYnVpw6fDo28gaGlwZXJnZW9tw6l0cmljYSwgY29uZm9ybWUgZGlzY3V0aWRvIHBvc3Rlcmlvcm1lbnRlIG5lc3RlIGNhcMOtdHVsbywgZGV2ZSBzZXIgZW1wcmVnYWRhLiBPYnNlcnZlIHF1ZSBxdWFuZG8gJG4gPSAxJCwgYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSBiaW5vbWlhbCDDqSBhcGVuYXMgYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSBkZSBCZXJub3VsbGksIGUgcXVhbmRvICRwID0gMCw1JCwgYSBkaXN0cmlidWnDp8OjbyBiaW5vbWlhbCDDqSBzaW3DqXRyaWNhIHBhcmEgcXVhbHF1ZXIgdmFsb3IgZG8gcGFyw6JtZXRybyAkbiQuIEEgbcOpZGlhICRcbXVfWCQgZSBhIHZhcmnDom5jaWEgJFxzaWdtYV4yX1gkIGRhIHZhcmnDoXZlbCBhbGVhdMOzcmlhIGJpbm9taWFsICRYJCwgcXVlIHBvZGUgc2VyIGRlZmluaWRhIGRlIGZvcm1hIGluZGVwZW5kZW50ZSBwZWxhIHNlbGXDp8OjbyBhcHJvcHJpYWRhIGRlICRwJCBlICRuJCwgc8OjbywgcmVzcGVjdGl2YW1lbnRlOg0KDQokJCBcbXVfWCA9IG5wICQkDQokJCBcc2lnbWFeMl9YID0gbnAoMS1wKSAkJA0KDQpSIGZ1bmN0aW9uIGRiaW5vbSh4LCBzaXplLCBwcm9iKSBpcyB0aGUgcHJvYmFiaWxpdHkgb2YgeCBzdWNjZXNzZXMgaW4gc2l6ZSB0cmlhbHMgd2hlbiB0aGUgcHJvYmFiaWxpdHkgb2Ygc3VjY2VzcyBpcyBwcm9iLiANCg0KTm8gYFJgIHBvZGVtb3MgdXNhciBhIGZ1bsOnw6NvIGByYmlub21gIHBhcmEgc2ltdWxhciBhIHJlYWxpemHDp8OjbyBkZSB1bSBwcm9jZXNzbyBiaW5vbWlhbC4NCg0KKipFWEVNUExPKio6IFZhbW9zIHNpbXVsYXIgbyBsYW7Dp2FtZW50byBkZSAxMCBtb2VkYXMgImp1c3RhcyIgKCRwPTAsNSQpIGUgY29udGFyIG8gbsO6bWVybyBkZSBjYXJhcyAoJHg9MSQpLiANCmBgYHtyfQ0KYiA8LSByYmlub20obiA9IDEwLCBzaXplID0gMSwgcHJvYiA9IDAuNSkNCmINCnN1bShiKQ0KYGBgDQoNCg0KSsOhIGEgZnVuw6fDo28gYGRiaW5vbSAoeCwgc2l6ZSwgcHJvYilgIHJldG9ybmEgYSBwcm9iYWJpbGlkYWRlIGRlICR4JCBzdWNlc3NvcyBlbSBgc2l6ZWAgdGVudGF0aXZhcyBxdWFuZG8gYSBwcm9iYWJpbGlkYWRlIGRlIHN1Y2Vzc28gw6kgYHByb2JgLg0KDQoNCioqRVhFTVBMTyoqOiBTZSAkWCBcc2ltIEIoMTA7IDAsMykkLiANCmEuIENhbGN1bGUgJFAoWD01KSQuDQpgYGB7cn0NCmRiaW5vbSh4ID0gNSwgc2l6ZSA9IDEwLCBwcm9iID0gMC4zKQ0KYGBgDQoNCmIuIENhbGN1bGUgJFAoMyBcbGVxIFggXGxlcSA1KSQuDQpgYGB7cn0NCmRiaW5vbSgzLCAxMCwgLjMpICsgZGJpbm9tKDQsIDEwLCAuMykgKyBkYmlub20oNSwgMTAsIC4zKQ0KYGBgDQpBbHRlcm5hdGl2YW1lbnRlOg0KYGBge3J9DQpkYmlub20oMzo1LCAxMCwgLjMpDQpgYGANCmBgYHtyfQ0Kc3VtKGRiaW5vbSgzOjUsIDEwICwgLjMpKQ0KYGBgDQoNCioqRVhFTVBMTyoqOiBTZSAkWCBcc2ltIEIoNjsgMCw1KSQuIA0KDQpWYW1vcyBzaW11bGFyOg0KYGBge3J9DQpyYmlub20obiA9IDA6Niwgc2l6ZSA9IDEsIHByb2IgPSAwLjUpDQpgYGANCk9idGVuZG8gdW1hIGRpc3RyaWJ1acOnw6NvIGRlIHByb2JhYmlsaWRhZGVzIGRlICRYJA0KDQpgYGB7cn0NCm4gPC0gNg0KcCA8LSAwLjUNCnggPC0gMDo2DQpwcm9icyA8LSBkYmlub20oeCA9IHgsIHNpemUgPSBuLCBwcm9iID0gcCkNCnByb2JzDQpgYGANClZhbW9zIHBsb3RhciBlc3NhIGRpc3RyaWJ1acOnw6NvLg0KDQpgYGB7cn0NCmJhcnBsb3QocHJvYnMsIA0KICAgICAgICBuYW1lcy5hcmcgPSB4LA0KICAgICAgICB4bGFiID0gIk7Dum1lcm8gZGUgc3VjZXNzb3MgKFgpIiwNCiAgICAgICAgeWxhYiA9ICJQcm9iYWJpbGlkYWRlIFAoWCkiLA0KICAgICAgICBsYXMgPSAxKSAgIyByb3RhdGUgYXhlcyBsYWJlbHMNCmBgYA0KDQoNCg0KDQo=</div>
 
 
 
@@ -1868,7 +1943,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("variaveis_aleatorias.Rmd");
+  window.initializeSourceEmbed("va_binomial.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

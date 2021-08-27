@@ -1761,67 +1761,90 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<div id="variáveis-aleatórias" class="section level1">
-<h1>3. Variáveis Aleatórias</h1>
-<div id="variáveis-aleatórias-1" class="section level2">
-<h2>3.1. Variáveis aleatórias</h2>
-<p>Uma <strong>variável aleatória</strong> é uma função <span class="math inline">\(X : \Omega \rightarrow \mathbb{R}\)</span> que assinala um número real <span class="math inline">\(X(\omega)\)</span> para cada resultado <span class="math inline">\(\omega \in \Omega\)</span>.</p>
-<p>Dada uma variável aleatória <span class="math inline">\(X\)</span> e um sobconjunto <span class="math inline">\(A\)</span> da linha real, define-se <span class="math inline">\(X^{-1}(A) = \{ \omega \in \Omega : X(\omega) \in A \}\)</span> e seja</p>
-<p><span class="math display">\[
-\begin{align}
-P(X \in A) = P(X^{-1}(A)) &amp;= P(\{ \omega \in \Omega; X(\omega) \in A \}) \\
-P(X = x) = P(X^{-1}(x)) &amp;= P(\{ \omega \in \Omega; X(\omega) = x \} )
-\end{align}
-\]</span></p>
-<p><span class="math inline">\(X\)</span> denota uma variável aleatória e <span class="math inline">\(x\)</span> um possível valor de <span class="math inline">\(X\)</span>.</p>
+<div id="variáveis-aleatórias-discretas" class="section level1">
+<h1>4. Variáveis Aleatórias Discretas</h1>
+<div id="experimentos-de-bernoulli" class="section level2">
+<h2>4.1. Experimentos de Bernoulli</h2>
 </div>
-<div id="função-de-distribuição" class="section level2">
-<h2>3.2. Função de distribuição</h2>
-<p>A <strong>Função de distribuição acumulada</strong> (FDA), ou simplesmente <strong>função de distribuição</strong>, <span class="math inline">\(F_X : \mathbb{R} \rightarrow [0, 1]\)</span> de uma variável aleatória <span class="math inline">\(X\)</span> é definida por:</p>
-<p><span class="math display">\[ F_X(x) = P(X \leq x) \]</span></p>
-<p>O seguinte resultado mostra que a FDA determina completamente a distribuição de uma variável aleatória.</p>
-<p><strong>Teorema</strong>. Seja <span class="math inline">\(X\)</span>, temos a FDA <span class="math inline">\(F\)</span>; e seja <span class="math inline">\(Y\)</span>, temos a FDA <span class="math inline">\(G\)</span>. Se <span class="math inline">\(F(x) = G(x)\)</span> para todo <span class="math inline">\(x\)</span> então <span class="math inline">\(P(X \in A) = P(Y \in A)\)</span> para todo <span class="math inline">\(A\)</span>.</p>
-<p><em>Tecnicamente, temos que <span class="math inline">\(P(X \in A) = P(Y \in A)\)</span> para todo evento mensurável <span class="math inline">\(A\)</span>.</em></p>
+<div id="a-distribuição-binomial" class="section level2">
+<h2>4.2. A distribuição Binomial</h2>
+<p>Função massa de probabilidade (PMF):</p>
+<p><span class="math display">\[p_X(x) = \mathbb{P}(X=x)=\left(\begin{array}{c}n\\x\end{array}\right) p^x(1-p)^{n-x}\]</span> onde:</p>
+<p><span class="math display">\[ \left(\begin{array}{c}n\\x\end{array}\right)=\frac{n!}{x!(n-x)!} \]</span></p>
+<p>para <span class="math inline">\(x = 0,1,\ldots,n\)</span>.</p>
+<div id="exemplo" class="section level4">
+<h4>Exemplo</h4>
+<p>Simulando o lançamento de 10 moedas com <span class="math inline">\(p=0,3\)</span>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmJpbm9tKDEwLCAxLCAwLjMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>rbinom(10, 1, 0.3)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAwIDAgMSAwIDAgMSAwIDAgMCAwXG4ifQ== -->
+<pre><code> [1] 0 0 1 0 0 1 0 0 0 0</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDYWxjdWxhbmRvIFAoWD0yKSBlbSAxMCBsYW7Dp2FtZW50byBkZSB1bWEgbW9lZGEgY29tIHA9MC4zIHVzYW5kbyAnZGJpbm9tJ1xuZGJpbm9tKDIsIDEwLCAuMylcbmBgYCJ9 -->
+<pre class="r"><code># Calculando P(X=2) em 10 lançamento de uma moeda com p=0.3 usando &#39;dbinom&#39;
+dbinom(2, 10, .3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMjMzNDc0NFxuIn0= -->
+<pre><code>[1] 0.2334744</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDYWxjdWxhbmRvIFAoWD0yKSBlbSAxMCBsYW7Dp2FtZW50byBkZSB1bWEgbW9lZGEgY29tIHA9MC4zXG4jIGZhemVuZG8gdW1hIHNpbXVsYcOnw6NvIGNvbSAncmJpbm9tJ1xubWVhbihyYmlub20oMTAwMDAsIDEwLCAuMykgPT0gMilcbmBgYCJ9 -->
+<pre class="r"><code># Calculando P(X=2) em 10 lançamento de uma moeda com p=0.3
+# fazendo uma simulação com &#39;rbinom&#39;
+mean(rbinom(10000, 10, .3) == 2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMjMzMVxuIn0= -->
+<pre><code>[1] 0.2331</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
-<div id="variáveis-aleatórias-discretas" class="section level2">
-<h2>3.3. Variáveis aleatórias discretas</h2>
-<p><strong>Definição</strong> Seja <span class="math inline">\(X\)</span> uma variável aleatória. Se o número possível de valores de <span class="math inline">\(X\)</span> for finito ou infinito enumerável, isto é, <span class="math inline">\(R_x = \{x_1, \cdots, x_n\}\)</span> ou$ Rx = {x_1, …, x_n, …}$, então <span class="math inline">\(X\)</span> é dita ser uma variável aleatória discreta. Denotando <span class="math inline">\(i = 1, 2, \cdots\)</span> essas probabilidades devem satisfazer as seguintes condições:</p>
-<ul>
-<li><span class="math display">\[ p(x_i) \geq 0 \]</span></li>
-<li><span class="math display">\[ \sum_{i} P(x_i) =1 \]</span></li>
-</ul>
-<p>A função <span class="math inline">\(p: \mathbb{R}_x \rightarrow [0, 1]\)</span> que associa todo resultado elementar <span class="math inline">\(xi\)</span> à sua probabilidade <span class="math inline">\(p(x_i)\)</span> é chamada de *função de probabilidade da variável aleatória <span class="math inline">\(X\)</span>.</p>
-<p>O conjunto de pares <span class="math inline">\((x_i, p(x_i))\)</span> é denominado <em>distribuição de probabilidade</em> de <span class="math inline">\(X\)</span>.</p>
 </div>
-<div id="variáveis-aleatórias-contínuas" class="section level2">
-<h2>3.4. Variáveis aleatórias contínuas</h2>
-<p><strong>Definição</strong> Seja <span class="math inline">\(X\)</span> uma variável aleatória que assume valores em um intervalo real ou uma coleção de intervalos reais, para a qual existe uma <em>função densidade de probabilidade</em> (FDP) que satisfaz as seguintes condições:</p>
-<ul>
-<li><span class="math display">\[ f(x) \geq 0 \]</span></li>
-<li><span class="math display">\[ \int_{- \infty}^{\infty}  f(x) = 1 \]</span></li>
-</ul>
-<p>Para dois números reais <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span>, tais que $ a b$, a probabilidade de que a variável aleatória assuma valores no intervalo <span class="math inline">\([a, b]\)</span> é dada por:</p>
-<p><span class="math display">\[ \mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x) dx \]</span></p>
+<div id="geométrica" class="section level2">
+<h2>4.3. Geométrica</h2>
+<p>Podemos dizer que <span class="math inline">\(X\)</span> possui uma distribuição geométrica e escrever <span class="math inline">\(X \sim Geo(p)\)</span>.</p>
+<p>Função massa de probabilidade (PMF):</p>
+<p><span class="math display">\[ p_X(x)=p(1-p)^x \quad x=0,1,2,...\\ \]</span> <strong>Valor esperado</strong> <span class="math display">\[E[X] = \frac{1}{p}\]</span></p>
+<p><strong>Variância</strong> <span class="math display">\[V(X) = \frac{1-p}{p^2}\]</span></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
-<div id="funções-de-uma-variável-aleatória" class="section level2">
-<h2>3.5. Funções de uma variável aleatória</h2>
-</div>
-<div id="valor-esperado" class="section level2">
-<h2>3.6. Valor esperado</h2>
-</div>
-<div id="momentos" class="section level2">
-<h2>3.7. Momentos</h2>
-</div>
-<div id="parâmetros-de-ordem" class="section level2">
-<h2>3.8. Parâmetros de ordem</h2>
-</div>
-<div id="função-geradora-de-momentos" class="section level2">
-<h2>3.9. Função geradora de momentos</h2>
+<div id="poisson" class="section level2">
+<h2>4.4. Poisson</h2>
+<p><span class="math display">\[p_X(x) = \mathbb{P}(X=x)=e^{-\lambda}\frac{\lambda^{x}}{x!} \quad x=0,1,2,3 ...\\\]</span></p>
+<p><strong>Valor esperado</strong> <span class="math display">\[E[X]=\lambda=np\]</span> considerando que <span class="math inline">\(p=\frac{\lambda}{n}\)</span>.</p>
+<p><strong>Variância</strong> <span class="math display">\[V(X)=\lambda\]</span></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubiA9IDVcbnAgPSAwLjAyXG54ID0gc2VxKDAsbiwxKVxucF94ID0gZGJpbm9tKHgsbixwKVxucGxvdCh4LHBfeCx0eXBlPSdoJyx4bGFiPSd2YWxvcmVzIGRlIHgnLHlsYWI9J3BfWCh4KScpXG5wb2ludHMoeCxwX3gsY29sPTIpXG5gYGAifQ== -->
+<pre class="r"><code>n = 5
+p = 0.02
+x = seq(0,n,1)
+p_x = dbinom(x,n,p)
+plot(x,p_x,type=&#39;h&#39;,xlab=&#39;valores de x&#39;,ylab=&#39;p_X(x)&#39;)
+points(x,p_x,col=2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>A dedução do modelo de Poisson é dada a partir do modelo binomial para o caso onde temos infinitas tentativas. Ou seja a distribuição de Poisson é um caso limite da binomial, que se desenvolve quando o número de tentativas <span class="math inline">\(n\)</span> aumenta indefinidamente, enquanto o produto <span class="math inline">\(\lambda=np\)</span>, que é o valor esperado do número de sucessos das tentativas, permanece constante. Dessa forma considere a PMF binomial:</p>
+<p><span class="math display">\[p(x)=\mathbb{P}(X=x)=\left(\begin{array}{c}n\\x\end{array}\right)p^x(1-p)^{n-x} \]</span> <span class="math display">\[ p(x)=\mathbb{P}(X=x)=\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}\]</span> que pode ser reescrita como, <span class="math display">\[ \mathbb{P}(X=x)=\frac{n!}{x!(n-x)!}p^x\frac{n^x}{n^x}\left(1-\frac{np}{n}\right)^{n-x}=\frac{n!}{x!(n-x)!}\frac{(np)^x}{n^x}\left(1-\frac{np}{n}\right)^{n-x}\]</span> <span class="math display">\[\mathbb{P}(X=x)=\frac{(np)^x}{x!}\frac{n!}{n^x(n-x)!}\left(1-\frac{np}{n}\right)^{n}\left(1-\frac{np}{n}\right)^{-x}\]</span> sendo, <span class="math inline">\(\lambda = np\)</span> <span class="math display">\[\mathbb{P}(X=x)=\frac{\lambda^x}{x!}\frac{n!}{n^x(n-x)!}\left(1-\frac{\lambda}{n}\right)^{n}\left(1-\frac{\lambda}{n}\right)^{-x}\]</span></p>
+<p>A expressão pode ser separada com o propósito de avaliarmos os seus limites quando <span class="math inline">\(lim(n\rightarrow\infty)\)</span>. Os limites em questão são, <span class="math display">\[lim(n\rightarrow\infty)\frac{n!}{n^x(n-x)!}= lim(n\rightarrow\infty)\left\{\frac{n(n-1)\cdots(n-x+1)}{x!}\right\}=1\]</span></p>
+<p><span class="math display">\[lim(n\rightarrow\infty)\left(1-\frac{\lambda}{n}\right)^{n}=e^{-\lambda}\]</span></p>
+<p><span class="math display">\[lim(n\rightarrow\infty)\left(1-\frac{\lambda}{n}\right)^{-x}=1\]</span></p>
+<p>Reconstruindo a expressão vemos que a PMF binomial tem a seguinte forma limite, <span class="math display">\[\lim_{n\rightarrow \infty}\mathbb{P}(X=x)=\frac{e^{-\lambda}\lambda^x}{x!}\]</span></p>
+<p>que é a PMF de Poisson.</p>
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDMuIFZhcmnDoXZlaXMgQWxlYXTDs3JpYXMNCg0KIyMgMy4xLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzDQoNClVtYSAqKnZhcmnDoXZlbCBhbGVhdMOzcmlhKiogw6kgdW1hIGZ1bsOnw6NvICRYIDogXE9tZWdhIFxyaWdodGFycm93IFxtYXRoYmJ7Un0kIHF1ZSBhc3NpbmFsYSB1bSBuw7ptZXJvIHJlYWwgJFgoXG9tZWdhKSQgcGFyYSBjYWRhIHJlc3VsdGFkbyAkXG9tZWdhIFxpbiBcT21lZ2EkLg0KDQpEYWRhIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgZSB1bSBzb2Jjb25qdW50byAkQSQgZGEgbGluaGEgcmVhbCwgZGVmaW5lLXNlICRYXnstMX0oQSkgPSBceyBcb21lZ2EgXGluIFxPbWVnYSA6IFgoXG9tZWdhKSBcaW4gQSBcfSQgZSBzZWphDQoNCiQkDQpcYmVnaW57YWxpZ259DQpQKFggXGluIEEpID0gUChYXnstMX0oQSkpICY9IFAoXHsgXG9tZWdhIFxpbiBcT21lZ2E7IFgoXG9tZWdhKSBcaW4gQSBcfSkgXFwNClAoWCA9IHgpID0gUChYXnstMX0oeCkpICY9IFAoXHsgXG9tZWdhIFxpbiBcT21lZ2E7IFgoXG9tZWdhKSA9IHggXH0gKQ0KXGVuZHthbGlnbn0NCiQkDQoNCiRYJCBkZW5vdGEgdW1hIHZhcmnDoXZlbCBhbGVhdMOzcmlhIGUgJHgkIHVtIHBvc3PDrXZlbCB2YWxvciBkZSAkWCQuDQoNCiMjIDMuMi4gRnVuw6fDo28gZGUgZGlzdHJpYnVpw6fDo28NCg0KQSAqKkZ1bsOnw6NvIGRlIGRpc3RyaWJ1acOnw6NvIGFjdW11bGFkYSoqIChGREEpLCBvdSBzaW1wbGVzbWVudGUgKipmdW7Dp8OjbyBkZSBkaXN0cmlidWnDp8OjbyoqLCAkRl9YIDogXG1hdGhiYntSfSBccmlnaHRhcnJvdyBbMCwgMV0kIGRlIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQgw6kgZGVmaW5pZGEgcG9yOg0KDQokJCBGX1goeCkgPSBQKFggXGxlcSB4KSAkJA0KDQpPIHNlZ3VpbnRlIHJlc3VsdGFkbyBtb3N0cmEgcXVlIGEgRkRBIGRldGVybWluYSBjb21wbGV0YW1lbnRlIGEgZGlzdHJpYnVpw6fDo28gZGUgdW1hIHZhcmnDoXZlbCBhbGVhdMOzcmlhLg0KDQoqKlRlb3JlbWEqKi4gIFNlamEgJFgkLCB0ZW1vcyBhIEZEQSAkRiQ7IGUgc2VqYSAkWSQsIHRlbW9zIGEgRkRBICRHJC4gIFNlICRGKHgpID0gRyh4KSQgcGFyYSB0b2RvICR4JCBlbnTDo28gJFAoWCBcaW4gQSkgPSBQKFkgXGluIEEpJCBwYXJhIHRvZG8gJEEkLg0KDQoqVGVjbmljYW1lbnRlLCB0ZW1vcyBxdWUgJFAoWCBcaW4gQSkgPSBQKFkgXGluIEEpJCBwYXJhIHRvZG8gZXZlbnRvIG1lbnN1csOhdmVsICRBJC4qDQoNCg0KIyMgMy4zLiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGRpc2NyZXRhcw0KDQoqKkRlZmluacOnw6NvKioNClNlamEgJFgkIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYS4gU2UgbyBuw7ptZXJvIHBvc3PDrXZlbCBkZSB2YWxvcmVzIGRlICRYJCBmb3IgZmluaXRvIG91IGluZmluaXRvIGVudW1lcsOhdmVsLCBpc3RvIMOpLCAkUl94ID0gXHt4XzEsIFxjZG90cywgeF9uXH0kIG91JCBSeCA9IFx7eF8xLCAuLi4sIHhfbiwgLi4uXH0kLCBlbnTDo28gJFgkICDDqSBkaXRhIHNlciB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgZGlzY3JldGEuIERlbm90YW5kbyAkaSA9IDEsIDIsIFxjZG90cyQgZXNzYXMgcHJvYmFiaWxpZGFkZXMgZGV2ZW0gc2F0aXNmYXplciBhcyBzZWd1aW50ZXMgY29uZGnDp8O1ZXM6IA0KDQoNCi0gJCQgcCh4X2kpIFxnZXEgMCAkJA0KLSAkJCBcc3VtX3tpfSBQKHhfaSkgPTEgJCQNCg0KQSBmdW7Dp8OjbyAkcDogXG1hdGhiYntSfV94IFxyaWdodGFycm93IFswLCAxXSQgcXVlIGFzc29jaWEgdG9kbyByZXN1bHRhZG8gZWxlbWVudGFyICR4aSQgw6Agc3VhIHByb2JhYmlsaWRhZGUgJHAoeF9pKSQgw6kgY2hhbWFkYSBkZSAqZnVuw6fDo28gZGUgcHJvYmFiaWxpZGFkZSBkYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYSAkWCQuDQoNCk8gY29uanVudG8gZGUgcGFyZXMgJCh4X2ksIHAoeF9pKSkkIMOpIGRlbm9taW5hZG8gKmRpc3RyaWJ1acOnw6NvIGRlIHByb2JhYmlsaWRhZGUqIGRlICRYJC4NCg0KDQoNCg0KIyMgMy40LiBWYXJpw6F2ZWlzIGFsZWF0w7NyaWFzIGNvbnTDrW51YXMNCg0KKipEZWZpbmnDp8OjbyoqDQpTZWphICRYJCB1bWEgdmFyacOhdmVsIGFsZWF0w7NyaWEgcXVlIGFzc3VtZSB2YWxvcmVzIGVtIHVtIGludGVydmFsbyByZWFsIG91IHVtYSBjb2xlw6fDo28gZGUgaW50ZXJ2YWxvcyByZWFpcywgcGFyYSBhIHF1YWwgZXhpc3RlIHVtYSAqZnVuw6fDo28gZGVuc2lkYWRlIGRlIHByb2JhYmlsaWRhZGUqIChGRFApIHF1ZSBzYXRpc2ZheiBhcyBzZWd1aW50ZXMgY29uZGnDp8O1ZXM6DQoNCi0gJCQgZih4KSBcZ2VxIDAgJCQNCi0gJCQgXGludF97LSBcaW5mdHl9XntcaW5mdHl9ICBmKHgpID0gMSAkJA0KDQpQYXJhIGRvaXMgbsO6bWVyb3MgcmVhaXMgJGEkIGUgJGIkLCB0YWlzIHF1ZSAkIGEgXGxlcSBiJCwgYSBwcm9iYWJpbGlkYWRlIGRlIHF1ZSBhIHZhcmnDoXZlbCBhbGVhdMOzcmlhIGFzc3VtYSB2YWxvcmVzIG5vIGludGVydmFsbyAkW2EsIGJdJCDDqSBkYWRhIHBvcjoNCg0KJCQgXG1hdGhiYntQfShhIFxsZXEgWCBcbGVxIGIpID0gXGludF9hXmIgZl9YKHgpIGR4ICQkDQoNCiMjIDMuNS4gRnVuw6fDtWVzIGRlIHVtYSB2YXJpw6F2ZWwgYWxlYXTDs3JpYQ0KDQojIyAzLjYuIFZhbG9yIGVzcGVyYWRvDQoNCiMjIDMuNy4gTW9tZW50b3MNCg0KIyMgMy44LiBQYXLDom1ldHJvcyBkZSBvcmRlbQ0KDQojIyAzLjkuIEZ1bsOnw6NvIGdlcmFkb3JhIGRlIG1vbWVudG9zDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVzdGF0w61zdGljYSBBcGxpY2FkYSINCmF1dGhvcjogIlByb2YuIFZpdG9yIEh1Z28gTWlybyAoREVBIGUgUFBHRVIvQ0NBL1VGQykiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQojIDQuIFZhcmnDoXZlaXMgQWxlYXTDs3JpYXMgRGlzY3JldGFzDQoNCiMjIDQuMS4gRXhwZXJpbWVudG9zIGRlIEJlcm5vdWxsaQ0KDQoNCg0KIyMgNC4yLiBBIGRpc3RyaWJ1acOnw6NvIEJpbm9taWFsDQoNCkZ1bsOnw6NvIG1hc3NhIGRlIHByb2JhYmlsaWRhZGUgKFBNRik6DQoNCiQkcF9YKHgpID0gXG1hdGhiYntQfShYPXgpPVxsZWZ0KFxiZWdpbnthcnJheX17Y31uXFx4XGVuZHthcnJheX1ccmlnaHQpIHBeeCgxLXApXntuLXh9JCQNCm9uZGU6DQoNCiQkIFxsZWZ0KFxiZWdpbnthcnJheX17Y31uXFx4XGVuZHthcnJheX1ccmlnaHQpPVxmcmFje24hfXt4IShuLXgpIX0gJCQNCg0KcGFyYSAkeCA9IDAsMSxcbGRvdHMsbiQuDQoNCg0KIyMjIyBFeGVtcGxvDQpTaW11bGFuZG8gbyBsYW7Dp2FtZW50byBkZSAxMCBtb2VkYXMgY29tICRwPTAsMyQuDQoNCmBgYHtyfQ0KcmJpbm9tKDEwLCAxLCAwLjMpDQpgYGANCmBgYHtyfQ0KIyBDYWxjdWxhbmRvIFAoWD0yKSBlbSAxMCBsYW7Dp2FtZW50byBkZSB1bWEgbW9lZGEgY29tIHA9MC4zIHVzYW5kbyAnZGJpbm9tJw0KZGJpbm9tKDIsIDEwLCAuMykNCg0KIyBDYWxjdWxhbmRvIFAoWD0yKSBlbSAxMCBsYW7Dp2FtZW50byBkZSB1bWEgbW9lZGEgY29tIHA9MC4zDQojIGZhemVuZG8gdW1hIHNpbXVsYcOnw6NvIGNvbSAncmJpbm9tJw0KbWVhbihyYmlub20oMTAwMDAsIDEwLCAuMykgPT0gMikNCmBgYA0KDQoNCg0KDQoNCiMjIDQuMy4gR2VvbcOpdHJpY2ENCg0KDQpQb2RlbW9zIGRpemVyIHF1ZSAkWCQgcG9zc3VpIHVtYSBkaXN0cmlidWnDp8OjbyBnZW9tw6l0cmljYSBlIGVzY3JldmVyICRYIFxzaW0gR2VvKHApJC4NCg0KDQpGdW7Dp8OjbyBtYXNzYSBkZSBwcm9iYWJpbGlkYWRlIChQTUYpOg0KDQokJCBwX1goeCk9cCgxLXApXnggXHF1YWQgeD0wLDEsMiwuLi5cXCAkJA0KKipWYWxvciBlc3BlcmFkbyoqDQokJEVbWF0gPSBcZnJhY3sxfXtwfSQkDQoNCioqVmFyacOibmNpYSoqDQokJFYoWCkgPSBcZnJhY3sxLXB9e3BeMn0kJA0KDQpgYGB7cn0NCg0KYGBgDQoNCg0KDQojIyA0LjQuIFBvaXNzb24NCg0KJCRwX1goeCkgPSBcbWF0aGJie1B9KFg9eCk9ZV57LVxsYW1iZGF9XGZyYWN7XGxhbWJkYV57eH19e3ghfSBccXVhZCB4PTAsMSwyLDMgLi4uXFwkJA0KDQoqKlZhbG9yIGVzcGVyYWRvKioNCiQkRVtYXT1cbGFtYmRhPW5wJCQNCmNvbnNpZGVyYW5kbyBxdWUgJHA9XGZyYWN7XGxhbWJkYX17bn0kLg0KDQoqKlZhcmnDom5jaWEqKg0KJCRWKFgpPVxsYW1iZGEkJA0KDQpgYGB7cn0NCm4gPSA1DQpwID0gMC4wMg0KeCA9IHNlcSgwLG4sMSkNCnBfeCA9IGRiaW5vbSh4LG4scCkNCnBsb3QoeCxwX3gsdHlwZT0naCcseGxhYj0ndmFsb3JlcyBkZSB4Jyx5bGFiPSdwX1goeCknKQ0KcG9pbnRzKHgscF94LGNvbD0yKQ0KYGBgDQoNCkEgZGVkdcOnw6NvIGRvIG1vZGVsbyBkZSBQb2lzc29uIMOpIGRhZGEgYSBwYXJ0aXIgZG8gbW9kZWxvIGJpbm9taWFsIHBhcmEgbyBjYXNvIG9uZGUgdGVtb3MgaW5maW5pdGFzIHRlbnRhdGl2YXMuIE91IHNlamEgYSBkaXN0cmlidWnDp8OjbyBkZSBQb2lzc29uIMOpIHVtIGNhc28gbGltaXRlIGRhIGJpbm9taWFsLCBxdWUgc2UgZGVzZW52b2x2ZSBxdWFuZG8gbyBuw7ptZXJvIGRlIHRlbnRhdGl2YXMgJG4kIGF1bWVudGEgaW5kZWZpbmlkYW1lbnRlLCBlbnF1YW50byBvIHByb2R1dG8gJFxsYW1iZGE9bnAkLCBxdWUgw6kgbyB2YWxvciBlc3BlcmFkbyBkbyBuw7ptZXJvIGRlIHN1Y2Vzc29zIGRhcyB0ZW50YXRpdmFzLCBwZXJtYW5lY2UgY29uc3RhbnRlLiBEZXNzYSBmb3JtYSBjb25zaWRlcmUgYSBQTUYgYmlub21pYWw6DQoNCiQkcCh4KT1cbWF0aGJie1B9KFg9eCk9XGxlZnQoXGJlZ2lue2FycmF5fXtjfW5cXHhcZW5ke2FycmF5fVxyaWdodClwXngoMS1wKV57bi14fSAkJA0KJCQgcCh4KT1cbWF0aGJie1B9KFg9eCk9XGZyYWN7biF9e3ghKG4teCkhfXBeeCgxLXApXntuLXh9JCQNCnF1ZSBwb2RlIHNlciByZWVzY3JpdGEgY29tbywNCiQkIFxtYXRoYmJ7UH0oWD14KT1cZnJhY3tuIX17eCEobi14KSF9cF54XGZyYWN7bl54fXtuXnh9XGxlZnQoMS1cZnJhY3tucH17bn1ccmlnaHQpXntuLXh9PVxmcmFje24hfXt4IShuLXgpIX1cZnJhY3sobnApXnh9e25eeH1cbGVmdCgxLVxmcmFje25wfXtufVxyaWdodClee24teH0kJA0KJCRcbWF0aGJie1B9KFg9eCk9XGZyYWN7KG5wKV54fXt4IX1cZnJhY3tuIX17bl54KG4teCkhfVxsZWZ0KDEtXGZyYWN7bnB9e259XHJpZ2h0KV57bn1cbGVmdCgxLVxmcmFje25wfXtufVxyaWdodCleey14fSQkDQpzZW5kbywgJFxsYW1iZGEgPSBucCQNCiQkXG1hdGhiYntQfShYPXgpPVxmcmFje1xsYW1iZGFeeH17eCF9XGZyYWN7biF9e25eeChuLXgpIX1cbGVmdCgxLVxmcmFje1xsYW1iZGF9e259XHJpZ2h0KV57bn1cbGVmdCgxLVxmcmFje1xsYW1iZGF9e259XHJpZ2h0KV57LXh9JCQNCg0KQSBleHByZXNzw6NvIHBvZGUgc2VyIHNlcGFyYWRhIGNvbSBvIHByb3DDs3NpdG8gZGUgYXZhbGlhcm1vcyBvcyBzZXVzIGxpbWl0ZXMgcXVhbmRvICRsaW0oblxyaWdodGFycm93XGluZnR5KSQuIE9zIGxpbWl0ZXMgZW0gcXVlc3TDo28gc8OjbywNCiQkbGltKG5ccmlnaHRhcnJvd1xpbmZ0eSlcZnJhY3tuIX17bl54KG4teCkhfT0gbGltKG5ccmlnaHRhcnJvd1xpbmZ0eSlcbGVmdFx7XGZyYWN7bihuLTEpXGNkb3RzKG4teCsxKX17eCF9XHJpZ2h0XH09MSQkDQoNCiQkbGltKG5ccmlnaHRhcnJvd1xpbmZ0eSlcbGVmdCgxLVxmcmFje1xsYW1iZGF9e259XHJpZ2h0KV57bn09ZV57LVxsYW1iZGF9JCQNCg0KJCRsaW0oblxyaWdodGFycm93XGluZnR5KVxsZWZ0KDEtXGZyYWN7XGxhbWJkYX17bn1ccmlnaHQpXnsteH09MSQkDQoNClJlY29uc3RydWluZG8gYSBleHByZXNzw6NvIHZlbW9zIHF1ZSBhIFBNRiBiaW5vbWlhbCB0ZW0gYSBzZWd1aW50ZSBmb3JtYSBsaW1pdGUsDQokJFxsaW1fe25ccmlnaHRhcnJvdyBcaW5mdHl9XG1hdGhiYntQfShYPXgpPVxmcmFje2Veey1cbGFtYmRhfVxsYW1iZGFeeH17eCF9JCQNCg0KcXVlIMOpIGEgUE1GIGRlIFBvaXNzb24u</div>
 
 
 
@@ -1868,7 +1891,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("variaveis_aleatorias.Rmd");
+  window.initializeSourceEmbed("var_aleatorias_discretas.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>

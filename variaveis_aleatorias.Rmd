@@ -45,7 +45,10 @@ Seja $X$ uma variável aleatória. Se o número possível de valores de $X$ for 
 
 A função $p: \mathbb{R}_x \rightarrow [0, 1]$ que associa todo resultado elementar $xi$ à sua probabilidade $p(x_i)$ é chamada de *função de probabilidade da variável aleatória $X$.
 
-O conjunto de pares $(x_i, p(x_i))$ é denominado *distribuição de pobabilidade* de $X$.  
+O conjunto de pares $(x_i, p(x_i))$ é denominado *distribuição de probabilidade* de $X$.
+
+
+
 
 ## 3.4. Variáveis aleatórias contínuas
 
@@ -55,7 +58,8 @@ Seja $X$ uma variável aleatória que assume valores em um intervalo real ou uma
 - $$ f(x) \geq 0 $$
 - $$ \int_{- \infty}^{\infty}  f(x) = 1 $$
 
-Para dois números reais $a$ e $b$, tais que $ a \leq b$, a probabilidade de que a variável aleatória assuma valores no intervalo $[a, b]$ é dada por: 
+Para dois números reais $a$ e $b$, tais que $ a \leq b$, a probabilidade de que a variável aleatória assuma valores no intervalo $[a, b]$ é dada por:
+
 $$ \mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x) dx $$
 
 ## 3.5. Funções de uma variável aleatória
