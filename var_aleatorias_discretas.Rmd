@@ -1,0 +1,105 @@
+---
+title: "Estatística Aplicada"
+author: "Prof. Vitor Hugo Miro (DEA e PPGER/CCA/UFC)"
+output: html_notebook
+---
+
+# 4. Variáveis Aleatórias Discretas
+
+## 4.1. Experimentos de Bernoulli
+
+
+
+## 4.2. A distribuição Binomial
+
+Função massa de probabilidade (PMF):
+
+$$p_X(x) = \mathbb{P}(X=x)=\left(\begin{array}{c}n\\x\end{array}\right) p^x(1-p)^{n-x}$$
+onde:
+
+$$ \left(\begin{array}{c}n\\x\end{array}\right)=\frac{n!}{x!(n-x)!} $$
+
+para $x = 0,1,\ldots,n$.
+
+
+#### Exemplo
+Simulando o lançamento de 10 moedas com $p=0,3$.
+
+```{r}
+rbinom(10, 1, 0.3)
+```
+```{r}
+# Calculando P(X=2) em 10 lançamento de uma moeda com p=0.3 usando 'dbinom'
+dbinom(2, 10, .3)
+
+# Calculando P(X=2) em 10 lançamento de uma moeda com p=0.3
+# fazendo uma simulação com 'rbinom'
+mean(rbinom(10000, 10, .3) == 2)
+```
+
+
+
+
+
+## 4.3. Geométrica
+
+
+Podemos dizer que $X$ possui uma distribuição geométrica e escrever $X \sim Geo(p)$.
+
+
+Função massa de probabilidade (PMF):
+
+$$ p_X(x)=p(1-p)^x \quad x=0,1,2,...\\ $$
+**Valor esperado**
+$$E[X] = \frac{1}{p}$$
+
+**Variância**
+$$V(X) = \frac{1-p}{p^2}$$
+
+```{r}
+
+```
+
+
+
+## 4.4. Poisson
+
+$$p_X(x) = \mathbb{P}(X=x)=e^{-\lambda}\frac{\lambda^{x}}{x!} \quad x=0,1,2,3 ...\\$$
+
+**Valor esperado**
+$$E[X]=\lambda=np$$
+considerando que $p=\frac{\lambda}{n}$.
+
+**Variância**
+$$V(X)=\lambda$$
+
+```{r}
+n = 5
+p = 0.02
+x = seq(0,n,1)
+p_x = dbinom(x,n,p)
+plot(x,p_x,type='h',xlab='valores de x',ylab='p_X(x)')
+points(x,p_x,col=2)
+```
+
+A dedução do modelo de Poisson é dada a partir do modelo binomial para o caso onde temos infinitas tentativas. Ou seja a distribuição de Poisson é um caso limite da binomial, que se desenvolve quando o número de tentativas $n$ aumenta indefinidamente, enquanto o produto $\lambda=np$, que é o valor esperado do número de sucessos das tentativas, permanece constante. Dessa forma considere a PMF binomial:
+
+$$p(x)=\mathbb{P}(X=x)=\left(\begin{array}{c}n\\x\end{array}\right)p^x(1-p)^{n-x} $$
+$$ p(x)=\mathbb{P}(X=x)=\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}$$
+que pode ser reescrita como,
+$$ \mathbb{P}(X=x)=\frac{n!}{x!(n-x)!}p^x\frac{n^x}{n^x}\left(1-\frac{np}{n}\right)^{n-x}=\frac{n!}{x!(n-x)!}\frac{(np)^x}{n^x}\left(1-\frac{np}{n}\right)^{n-x}$$
+$$\mathbb{P}(X=x)=\frac{(np)^x}{x!}\frac{n!}{n^x(n-x)!}\left(1-\frac{np}{n}\right)^{n}\left(1-\frac{np}{n}\right)^{-x}$$
+sendo, $\lambda = np$
+$$\mathbb{P}(X=x)=\frac{\lambda^x}{x!}\frac{n!}{n^x(n-x)!}\left(1-\frac{\lambda}{n}\right)^{n}\left(1-\frac{\lambda}{n}\right)^{-x}$$
+
+A expressão pode ser separada com o propósito de avaliarmos os seus limites quando $lim(n\rightarrow\infty)$. Os limites em questão são,
+$$lim(n\rightarrow\infty)\frac{n!}{n^x(n-x)!}= lim(n\rightarrow\infty)\left\{\frac{n(n-1)\cdots(n-x+1)}{x!}\right\}=1$$
+
+$$lim(n\rightarrow\infty)\left(1-\frac{\lambda}{n}\right)^{n}=e^{-\lambda}$$
+
+$$lim(n\rightarrow\infty)\left(1-\frac{\lambda}{n}\right)^{-x}=1$$
+
+Reconstruindo a expressão vemos que a PMF binomial tem a seguinte forma limite,
+$$\lim_{n\rightarrow \infty}\mathbb{P}(X=x)=\frac{e^{-\lambda}\lambda^x}{x!}$$
+
+que é a PMF de Poisson.

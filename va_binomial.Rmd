@@ -1,0 +1,117 @@
+---
+title: "Estatística Aplicada"
+author: "Prof. Vitor Hugo Miro (DEA e PPGER/CCA/UFC)"
+output: html_notebook
+---
+
+# Distribuição Binomial
+
+
+## Bernoulli
+
+A variável aleatória de Bernoulli $X$ assume o valor 1 com probabilidade $p$ (também conhecida como probabilidade de sucesso) e o valor 0 com probabilidade $1-p$ (probabilidade de falha), onde $0 < p < 1$. É, portanto, uma variável aleatória discreta com o intervalo ${0, 1}$. A FMP de uma variável aleatória de Bernoulli é definida da seguinte maneira:
+
+$$
+p_X (x)=\left\{ \begin{array}{ll}
+p & \mathrm{se} \ X=1,\\
+1-p & \mathrm{se} \ X=0, \\
+0 & \mathrm{se} \ X\neq 0, 1
+\end{array}\right.
+$$
+Um ensaio de Bernoulli, que corresponde à amostragem da distribuição de Bernoulli, é um experimento aleatório com exatamente dois resultados possíveis, em que a probabilidade de cada um dos dois resultados permanece a mesma toda vez que o experimento é conduzido. Em estudos independentes, o resultado de um estudo não tem influência sobre o resultado de outro estudo. O ensaio de Bernoulli é um bloco de construção básico para algumas distribuições discretas bem conhecidas, como as distribuições binomial, geométrica e Pascal.
+
+A média $\mu_x$ e a variância $\sigma^2_X$ da variável aleatória de Bernoulli são, respectivamente:
+
+$$ \mu_X = p $$
+$$ \sigma^2_X = 1-p $$
+
+No `R` podemos usar a função `rbinom` para simular um experimento de Bernoulli.
+A função é dada por `rbinom(n, size, prob)`, em que `n` é número de observações, `size` é o número de tentativas e `prob` é a probabilidade de sucesso no experimento $p$.
+
+**EXEMPLO**: Lançamento de uma moeda.
+
+```{r}
+rbinom(1, 1, 0.5)
+```
+
+
+## Binomial
+
+A variável aleatória binomial $X$ é o número de vezes que 1 (ou seja, sucessos) ocorre em $n$ ensaios de Bernoulli independentes, onde $n$ é um número inteiro positivo, e cada ocorrência de 1 é assumida como tendo probabilidade $p$, com $0 < p < 1$. Ou seja, a soma de $n$ tentativas de Bernoulli independentes é uma variável aleatória binomial. A notação $X \sim B (n, p)$ denota que a variável aleatória $X$ tem a distribuição binomial com os parâmetros $n$ e $p$. 
+
+A PMF de uma variável aleatória binomial é:
+
+$$
+p_X (x)=\left\{ \begin{array}{ll}
+\left(\begin{array}{c}n\\x\end{array}\right) p^x(1-p)^{n-x} & \mathrm{se} \ x=0, 1, \cdots, n,\\
+0 & \mathrm{se} \ \text{caso contrário}
+\end{array}\right.
+$$
+onde $\left(\begin{array}{c}n\\x\end{array}\right)=\frac{n!}{x!(n-x)!}$ é o coeficiente binomial:
+
+A distribuição binomial é freqüentemente usada para modelar o número de sucessos quando a amostragem é realizada com reposição, pois os sorteios são independentes. Se a amostragem for realizada sem reposição de uma população finita, os sorteios não são independentes e a distribuição hipergeométrica, conforme discutido posteriormente neste capítulo, deve ser empregada. Observe que quando $n = 1$, a variável aleatória binomial é apenas a variável aleatória de Bernoulli, e quando $p = 0,5$, a distribuição binomial é simétrica para qualquer valor do parâmetro $n$. A média $\mu_X$ e a variância $\sigma^2_X$ da variável aleatória binomial $X$, que pode ser definida de forma independente pela seleção apropriada de $p$ e $n$, são, respectivamente:
+
+$$ \mu_X = np $$
+$$ \sigma^2_X = np(1-p) $$
+
+R function dbinom(x, size, prob) is the probability of x successes in size trials when the probability of success is prob. 
+
+No `R` podemos usar a função `rbinom` para simular a realização de um processo binomial.
+
+**EXEMPLO**: Vamos simular o lançamento de 10 moedas "justas" ($p=0,5$) e contar o número de caras ($x=1$). 
+```{r}
+b <- rbinom(n = 10, size = 1, prob = 0.5)
+b
+sum(b)
+```
+
+
+Já a função `dbinom (x, size, prob)` retorna a probabilidade de $x$ sucessos em `size` tentativas quando a probabilidade de sucesso é `prob`.
+
+
+**EXEMPLO**: Se $X \sim B(10; 0,3)$. 
+a. Calcule $P(X=5)$.
+```{r}
+dbinom(x = 5, size = 10, prob = 0.3)
+```
+
+b. Calcule $P(3 \leq X \leq 5)$.
+```{r}
+dbinom(3, 10, .3) + dbinom(4, 10, .3) + dbinom(5, 10, .3)
+```
+Alternativamente:
+```{r}
+dbinom(3:5, 10, .3)
+```
+```{r}
+sum(dbinom(3:5, 10 , .3))
+```
+
+**EXEMPLO**: Se $X \sim B(6; 0,5)$. 
+
+Vamos simular:
+```{r}
+rbinom(n = 0:6, size = 1, prob = 0.5)
+```
+Obtendo uma distribuição de probabilidades de $X$
+
+```{r}
+n <- 6
+p <- 0.5
+x <- 0:6
+probs <- dbinom(x = x, size = n, prob = p)
+probs
+```
+Vamos plotar essa distribuição.
+
+```{r}
+barplot(probs, 
+        names.arg = x,
+        xlab = "Número de sucessos (X)",
+        ylab = "Probabilidade P(X)",
+        las = 1)  # rotate axes labels
+```
+
+
+
+
