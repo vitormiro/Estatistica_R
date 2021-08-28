@@ -112,6 +112,17 @@ barplot(probs,
         las = 1)  # rotate axes labels
 ```
 
+# Distribuição Geométrica
+
+Em uma seqüência de tentativas independentes de Bernoulli com probabilidade de sucesso $p$, onde $0 <p <1$, a variável aleatória $X$ que denota o número de tentativas realizadas até que ocorra o primeiro sucesso é dita ter a distribuição geométrica.
+
+A FMP variável aleatória geométrica é dada por:
+$$ p_X(x) = p(1-p)^{x} \qquad x = 1, 2, \ldots $$
+Isso destaca o fato de que ocorrem $x − 1$ falhas antes que o primeiro sucesso ocorra na $x$-ésima tentativa. Observe que a FMP $p_X(x)$ decai geometricamente com o valor de $x$, e conforme o valor de $p$ aumenta, a FMP diminui mais rápido.
+
+
+
+
 
 
 
