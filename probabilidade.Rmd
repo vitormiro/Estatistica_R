@@ -6,14 +6,23 @@ output: html_notebook
 
 # 1. Probabilidade
 
+Probabilidades estão sempre associadas a eventos.
+
+A ideia de probabilidade é prover uma medida associada a ocorrência de um evento.
+
+Vejamos algumas definições.
+
 ## 1.1. Eventos e espaço amostral
 
-O **espaço amostral** $\Omega$  é um conjunto de resultados possíveis de um experimento.  Os elementos de $\Omega$ são denominados **resultados ou pontos amostrais**, dados por $\omega$ in $\Omega$. 
+Um **experimento** é um procedimento reproduzível, e que tem um conjunto definido de resultados possíveis.
 
-**Eventos** são conjuntos de $\Omega$.
+O **espaço amostral** $\Omega$  é um conjunto de todos os resultados possíveis de um experimento.  Os elementos de $\Omega$ são denominados **resultados ou pontos amostrais**, dados por $\omega$, tal que $\omega \in \Omega$. 
+
+Um **eventos** $A$ é um conjuntos de resultados de interesse, sendo um subconjunto do espaço amostal, $A \subseteq \Omega$.
+
 
 #### Complementar
-Dado um evento $A$, $A^c = \{ \omega \in \Omega : \text{not } (\omega \in A) \}$ denota o complementar de $A$.  Por sua vez, o complementar de $\Omega$ é o conjunto vazio $\varnothing$.
+Dado um evento $A$, $A^c = \{ \omega \in \Omega : \text{não } (\omega \in A) \}$ denota o complementar de $A$.  Por sua vez, o complementar de $\Omega$ é o conjunto vazio $\varnothing$.
 
 #### União
 A união dos eventos $A$ e $B$ é definida por $A \cup B = \{ \omega \in \Omega : \omega \in A \text{ ou } \omega \in B \}$.
@@ -23,7 +32,7 @@ Se $A_1, A_2, \dots$ é uma sequência de conjuntos, então:
 $$ \cup_{i=1}^\infty A_i = \left\{ \omega \in \Omega : \omega \in A_i \text{ para algum } i \right\}$$
 
 #### Interseção
-A interseção de $A$ and $B$ is $A \cap B = \{ \omega \in \Omega : \omega \in A \text{ e } \omega \in B \}$.
+A interseção dos eventos $A$ e $B$ é dada por $A \cap B = \{ \omega \in \Omega : \omega \in A \text{ e } \omega \in B \}$.
 
 Se $A_1, A_2, \dots$ é uma sequência de conjuntos, então:
 
@@ -54,7 +63,7 @@ Se $A$ é um conjunto finito, $|A|$ denota o número de elementos em $A$.
 
 
 #### Partição do espaço amostral
-Os eventos $A_1, A_2, \dots$ são **disjuntos** or **mutuamente exclusivos** se $A_i \cap A_j = \varnothing$ whenever $i \neq j$.  
+Os eventos $A_1, A_2, \dots$ são **disjuntos** ou **mutuamente exclusivos** se $A_i \cap A_j = \varnothing$ sempre que $i \neq j$.  
 
 Uma **partição** de $\Omega$ é uma sequência de conjuntos disjuntos $A_1, A_2, \dots$ tal que $\cup_{i=1}^\infty A_i = \Omega$. Dizemos que a união de eventos $A_1, A_2, \dots$ é exaustiva em $\Omega$.
 
@@ -74,6 +83,26 @@ Para ambos os casos, escrevemos $A_n \rightarrow A$.
 
 ## 1.2. Probabilidade
 
+### Definição Clássica
+
+Seja $\Omega$ um espaço amostral finito e uniforme, e seja $A$ um evento qualquer desse espaço. A probabilidade de que $A$ ocorra, denotada por $P(A)$, é dada por:
+
+$$ P(A) = \frac{\#A}{\# \Omega} $$
+, em que $\# \Omega$ é o número de resultados possíveis do experimento e $\#A$ é o número de resultados favoráveis à ocorrência do evento $A$. É claro que $0 \leq P(A) \leq 1$ .
+
+Apesar de sua facilidade de aplicação, a definição clássica tem as suas limitações, não sendo adequada para situações envolvendo espaços amostrais não uniformes.
+
+### Definição frequentista
+
+Suponha que o experimento foi repetido $n$ vezes, sempre sob as mesmas condições, e que o evento $A$ ocorreu $m$ vezes entre essas $n$ realizações do experimento. Então, se o número $n$ de repetições for bastante grande, a fração $m/n$ é uma boa aproximação para a probabilidade de $A$.
+
+$$ P(A) \approx \frac{m}{n} $$
+
+O conceito frequentista é mais abrangente do que o conceito clássico de probabilidade, considerando que ele se aplica mesmo quando o espaço amostral não é finito e uniforme. 
+
+Existem situações nas quais faz todo o sentido pensarmos em atribuir um valor à probabilidade de algo ocorrer, embora não seja possível determinarmos empiricamente esse valor. Nestes casos adota-se um conceito de probabilidade subjetiva, em que a probabilidade de um evento ocorrer é determinada pelo o grau de confiança do observador quanto à ocorrência ou não do evento em questão.
+
+### Abordagem axiomática e propriedades
 A função $\mathbb{P}$ que assinala um número real $\mathbb{P}(A)$ para cada evento $A$  é uma **distribuição de probabilidade** ou uma **medida de probabilidade** se satisfaz os seguintes axiomas:
 
 - **Axioma 1**.
@@ -96,7 +125,6 @@ Algumas propriedades derivadas destes axiomas:
 - $A \cap B = \varnothing \Rightarrow \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B)$
 
 
-
 **Lema 1**.  Para dois eventos quaisquer $A$ e $B$, $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb(B) - \mathbb{P}(AB)$.
 
 **Demonstração**. 
@@ -110,10 +138,7 @@ $$
 \end{align}
 $$
 
-
-
 ### Simulando o lançamento de moedas
-
 
 Exemplo: O lançamento de uma moeda.
 ```{r}
@@ -172,6 +197,18 @@ df_dado_prob
 
 ## 1.3. Métodos de contagem
 
+Em algumas aplicações a determinação do número de elementos de $A$, e até mesmo o número de elementos do próprio espaço amostral $\Omega$, pode não ser imediata. Nestas situações, as técnicas de contagem da Análise Combinatória podem ser úteis.
+
+**Princípio básico de contagem**
+Suponha que um dado procedimento possa ser executado de $m$ maneiras e que, a seguir, um segundo procedimento possa ser executado de $n$ maneiras. Cada uma das maneiras do procedimento inicial pode ser seguida por qualquer uma das maneiras do segundo procedimento. Então o procedimento resultante do primeiro seguido do segundo poderá ser executado de ($m \times n$) maneiras.
+
+#### Pemutações
+
+#### Arranjos
+
+#### Combinações
+
+### Permutações com elementos repetidos
 
 ## 1.4. Probabilidade condicional
 

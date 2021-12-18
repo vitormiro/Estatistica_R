@@ -120,6 +120,36 @@ A FMP variável aleatória geométrica é dada por:
 $$ p_X(x) = p(1-p)^{x} \qquad x = 1, 2, \ldots $$
 Isso destaca o fato de que ocorrem $x − 1$ falhas antes que o primeiro sucesso ocorra na $x$-ésima tentativa. Observe que a FMP $p_X(x)$ decai geometricamente com o valor de $x$, e conforme o valor de $p$ aumenta, a FMP diminui mais rápido.
 
+A média $\mmu_X$ e a variância $\sigma^2$ da variável aleatória geométrica $X$ são, respectivamente:
+
+$$ \mu_X = \frac{1}{p} $$
+
+$$ \sigma^2_X = \frac{1-p}{p^2} $$
+
+# Distribuição de Poisson
+
+A distribuição de Poisson representa o número de ocorrências de eventos em intervalos contínuos especificados, como o número de chamadas telefônicas recebidas por um usuário durante um dia ou o número de casos de uma doença em uma área ou região. A distribuição de Poisson é aplicada na contagem do número de eventos raros, mas em aberto. A variável aleatória de Poisson surge em situações onde os eventos ocorrem completamente ao acaso no tempo ou espaço. Esses eventos ocorrem com uma taxa média constante e independentemente do tempo ou espaço associado ao último evento. Em outras palavras, a ocorrência de um evento não afeta a probabilidade de que um segundo evento ocorra. A FMP de uma variável aleatória de Poisson é definido da seguinte forma:
+
+$$p(x) = \frac 1{x!} \lambda^x e^{-\lambda}, \qquad x = 0,1,\ldots, \qquad \lambda >0 $$
+onde $\lambda$ é o parâmetro da distribuição que reflete a taxa média de ocorrência.
+A média $\mmu_X$ e a variância $\sigma^2$ da variável aleatória de Poisson $X$ são
+as seguintes:
+
+$$ \mu_X = \lambda $$
+
+$$ \sigma^2_X = \lambda $$
+A média e a variância de uma distribuição de Poisson são iguais ao valor do parâmetro e não podem ser especificadas de forma independente. Ao aumentar $\lambda$, espera-se um valor esperado maior e uma distribuição mais espalhada.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
